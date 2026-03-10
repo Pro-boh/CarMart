@@ -1,0 +1,544 @@
+<html>
+<title>2021 BMW Series </title>
+
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #2d2d2d;
+      margin: 0;
+      padding-top: var(--nav-height);
+    }
+
+    /* IMAGE */
+    .imgCont {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .quote {
+      font-family: Arial;
+      color: white;
+      font-size: clamp(2rem, 8vw, 120px);
+      z-index: 1;
+      text-align: center;
+      font-weight: bold;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    }
+
+    /* CONTENT */
+    .box {
+      border-radius: var(--border-radius);
+      background-color: #181818;
+      height: auto;
+      padding: 30px;
+      margin: 20px;
+    }
+
+    .text {
+      font-family: sans-serif;
+      color: E0E0E0;
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    /* IMAGE GALLERY */
+
+    div.scroll-container {
+      background-color: #181818;
+      overflow: auto;
+      white-space: nowrap;
+      padding: 10px;
+      border-radius: 25px;
+    }
+
+    div.scroll-container img {
+      padding: 10px;
+      border-radius: 25px;
+      color: #181818;
+    }
+
+
+    /* FINAL CONTENT */
+
+    .text1 {
+      font-family: sans-serif;
+      font-size: 55px;
+
+      text-align: center;
+      background: linear-gradient(cyan, yellow);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+
+    /* BUTTON DESIGN*/
+
+    button {
+      background-color: black;
+      border: none;
+      color: white;
+      padding: 15px 26px;
+      text-center: center;
+      font-size: 20px;
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: red;
+    }
+
+    /* POPUP FORM */
+
+    #popupForm {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-box {
+      background: rgba(255, 255, 255, 0.5);
+      padding: 20px;
+      border-radius: 15px;
+      width: 500px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    .popup-box h2 {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #555;
+      background-color: #222;
+      color: #fff;
+      border-radius: 5px;
+    }
+
+    button[type="submit"] {
+      background-color: #28a745;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #218838;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #ff4136;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+
+    .close-btn:hover {
+      background-color: #c0392b;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="main-nav">
+    <div class="main-nav-inner">
+      <a href="CARMART HOME.html" class="nav-logo">CarMart</a>
+      <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav aria-label="Main navigation">
+        <ul class="nav-list" id="nav-list">
+          <li class="nav-item"><a href="CARMART HOME.html" class="nav-link">HOME</a></li>
+          <li class="nav-item"><a href="CAR.html" class="nav-link">CARS</a></li>
+          <li class="nav-item"><a href="SEARCH.html" class="nav-link">🔎</a></li>
+          <li class="nav-item"><a href="TRADE.html" class="nav-link">TRADE</a></li>
+          <li class="nav-item"><a href="FAQs.html" class="nav-link">FAQ</a></li>
+          <li class="nav-item"><a href="About Car Mart.html" class="nav-link">ABOUT US</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <script>
+    document.getElementById('mobile-menu').addEventListener('click', function () {
+      document.getElementById('nav-list').classList.toggle('active');
+    });
+  </script>
+
+  <!-- HERO SECTION -->
+  <div class="container">
+    <img class="imgCont" src="images/bmw_3_series_used.jpg">
+    <div class="quote">
+      <p>2021 BMW Series</p>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="box">
+    <div class="text">
+      <h1>2021 BMW Series</h1>
+      <p>Price Range (Brand new): <b>$41 999</b></p>
+      <hr style="color: white;"><br>
+    </div>
+  </div>
+  <br>
+
+  <div class="box">
+    <div class="text">
+      <p><b>Overview of BMW (2021 Model Year)</b></p>
+      <p>BMW's 2021 model year offers a remarkable range of vehicles that embody luxury, performance, and cutting-edge
+        technology. Spanning sedans, coupes, SUVs, and electric vehicles, BMW continues to innovate while maintaining
+        its strong heritage of driving excellence. The lineup caters to diverse preferences, from the dynamic
+        performance of the M Series to the sustainability focus of the i Series. BMW’s hallmark blend of style, comfort,
+        and advanced technology ensures it remains a top choice in the premium automotive segment.
+      </p>
+    </div>
+  </div>
+  <br>
+
+
+  <div class="box">
+    <div class="text">
+      <p><b>Popular Sedans (2021 BMW 3 Series, 5 Series, and 7 Series)</b></p>
+
+      <p><u>BMW 3 Series</u></p>
+      <p>The 2021 BMW 3 Series is a compact executive sedan that delivers a perfect balance of performance and luxury.
+        With variants like the 330i, 330e plug-in hybrid, and the sporty M340i, the 3 Series caters to a wide range of
+        drivers. Its powerful turbocharged engines, including a 255-hp 2.0L inline-4 and a 382-hp inline-6, ensure
+        thrilling performance. Inside, the cabin features a sophisticated design with high-quality materials and the
+        intuitive iDrive 7.0 infotainment system. Fuel-efficient yet powerful, the 3 Series is a standout in its
+        segment.</p>
+
+      <p><u>BMW 5 Series</u></p>
+      <p>The BMW 5 Series is a midsize luxury sedan that combines refined styling with advanced technology. It offers
+        multiple powertrain options, including the efficient 530e plug-in hybrid and the robust M550i with a 523-hp V8
+        engine. Inside, the 5 Series boasts a spacious and quiet cabin with a 12.3-inch touchscreen and luxurious
+        materials. Advanced safety features and semi-autonomous driving capabilities make it an excellent choice for
+        both daily commutes and long journeys.</p>
+
+      <p><u>BMW 7 Series</u></p>
+      <p>BMW’s flagship sedan, the 7 Series, epitomizes luxury with its opulent interior, cutting-edge technology, and
+        powerful engine options. From the 740i's smooth inline-6 to the M760i’s 6.6L V12 producing over 600 hp, the 7
+        Series offers unparalleled performance and comfort. The spacious rear seat can be configured with executive
+        lounge seating, making it ideal for chauffeured passengers. With advanced features like gesture controls and a
+        Bowers & Wilkins sound system, the 7 Series redefines luxury sedans.</p>
+
+    </div>
+  </div>
+  <br>
+
+
+  <div class="box">
+    <div class="text">
+      <p><b>Coupes and Convertibles (2021 BMW 4 Series and 8 Series)</b></p>
+
+      <p><u>BMW 4 Series</u></p>
+      <p>The 2021 BMW 4 Series stands out with its bold design, particularly the large kidney grille that sparked much
+        debate. This luxury coupe offers sharp handling and a choice of powerful engines, including the 255-hp 2.0L
+        inline-4 in the 430i and the 382-hp inline-6 in the M440i. Inside, the 4 Series features a premium cabin with a
+        10.25-inch infotainment display, wireless smartphone integration, and high-quality materials. The convertible
+        variant adds open-air thrills to the 4 Series’ sporty dynamics.</p>
+
+      <p><u>BMW 8 Series</u></p>
+      <p>The BMW 8 Series combines grand touring luxury with sports car performance. Available as a coupe, convertible,
+        and Gran Coupe, it caters to various preferences. The 8 Series lineup includes engines ranging from a 335-hp
+        inline-6 in the 840i to a 617-hp twin-turbo V8 in the M8 Competition. The interior is a masterpiece of
+        craftsmanship, featuring extended Merino leather, customizable ambient lighting, and a driver-focused cockpit.
+        Whether on winding roads or long highway stretches, the 8 Series delivers a luxurious yet exhilarating
+        experience.</p>
+
+    </div>
+  </div>
+  <br>
+
+
+
+  <div class="box">
+    <div class="text">
+      <p><b>Coupes and Convertibles (2021 BMW 4 Series and 8 Series)</b></p>
+
+      <p><u>BMW X1</u></p>
+      <p>The 2021 BMW X1 is a versatile subcompact SUV that offers a sporty driving experience and practical space. Its
+        228-hp turbocharged 2.0L engine ensures lively acceleration, while its compact size makes it easy to maneuver in
+        urban settings. Inside, the X1 offers a well-designed cabin with ample cargo space and standard safety features
+        like lane departure warning and automatic emergency braking.</p>
+
+      <p><u>BMW X3</u></p>
+      <p>As a compact luxury SUV, the BMW X3 excels in balancing performance, comfort, and practicality. With engine
+        options ranging from a 248-hp 2.0L inline-4 to a 382-hp 3.0L inline-6 in the M40i, the X3 delivers impressive
+        versatility. The cabin features high-quality materials, a large touchscreen, and spacious seating. Available in
+        rear-wheel or all-wheel drive, the X3 is an ideal choice for families and enthusiasts alike.</p>
+
+      <p><u>BMW X5</u></p>
+      <p>The BMW X5 remains a benchmark in the midsize luxury SUV segment. With engines ranging from a 335-hp inline-6
+        to a 523-hp V8, the X5 offers a mix of power and refinement. Its plug-in hybrid variant, the xDrive45e, adds an
+        eco-friendly option with an electric-only range of up to 30 miles. The interior is luxurious and tech-forward,
+        with features like a digital cockpit and available third-row seating.</p>
+
+      <p><u>BMW X7</u></p>
+      <p>The 2021 BMW X7 is the brand's flagship SUV, offering three rows of seating and an opulent interior. Engine
+        options include a 335-hp inline-6, a 523-hp V8, and an M Performance variant with over 600 hp. The X7’s cabin
+        features high-quality materials, advanced technology, and optional rear-seat entertainment. It’s a perfect
+        choice for families seeking luxury and performance in a full-size SUV.</p>
+
+    </div>
+  </div>
+  <br>
+
+
+  <div class="box">
+    <div class="text">
+      <p><b>Electric and Hybrid Vehicles (2021 i Series and Plug-In Hybrids)</b></p>
+
+      <p><u>BMW i3</u></p>
+      <p>The BMW i3 is a compact electric vehicle designed for urban commuting. With a range of up to 153 miles and the
+        option of a range extender, it’s practical for city drivers. The interior is crafted with eco-friendly
+        materials, including recycled plastics and natural fibers, showcasing BMW’s commitment to sustainability.</p>
+
+      <p><u>Plug-In Hybrid Models</u></p>
+      <p>BMW’s 2021 lineup includes plug-in hybrid variants for the 3 Series, 5 Series, and X5, blending performance
+        with eco-consciousness. These models offer electric-only ranges of up to 30 miles, making them ideal for short
+        commutes while retaining BMW’s signature driving dynamics.</p>
+
+    </div>
+  </div>
+  <br>
+
+  <div class="box">
+    <div class="text">
+      <p><b>Performance Models (BMW M Series)</b></p>
+
+      <p>BMW’s M Series represents the pinnacle of performance and engineering. The 2021 M3 and M4 are powered by
+        twin-turbocharged 3.0L inline-6 engines producing up to 503 hp in Competition trims. The M5 offers supercar-like
+        performance with its 617-hp V8, while the X5 M and X6 M deliver breathtaking speed in SUV form. Advanced
+        features like adaptive suspension and M-tuned xDrive systems ensure precise handling and exhilarating
+        performance.</p>
+
+    </div>
+  </div>
+  <br>
+
+
+  <div class="box">
+    <div class="text">
+      <p><b>Technology and Features</b></p>
+
+      <p>BMW’s 2021 models are packed with advanced technology, including the latest iDrive 7.0 system. Features like
+        wireless Apple CarPlay and Android Auto, gesture controls, and digital instrument clusters enhance convenience
+        and connectivity. Safety systems such as adaptive cruise control, lane-keeping assist, and a 360-degree camera
+        ensure peace of mind on every journey. BMW also offers premium options like head-up displays, Harman Kardon
+        sound systems, and customizable ambient lighting.</p>
+
+    </div>
+  </div>
+  <br>
+
+
+  <div class="box">
+    <div class="text">
+      <p><b>Pricing (Starting Prices)</b></p>
+
+      <p>BMW’s 2021 lineup spans a broad price range to cater to diverse buyers. Entry-level models like the <b>3 Series
+          start at $41 250</b>, while flagship offerings like <b>the 7 Series and X7 start at $86 800 and $74 900</b>,
+        respectively. High-performance M models command higher prices, reflecting their exceptional engineering and
+        performance.</p>
+
+    </div>
+  </div>
+  <br>
+
+
+  <div class="box">
+    <div class="text">
+      <p><b>Strengths and Weaknesses</b></p>
+
+      <p>BMW’s strengths include its exceptional driving dynamics, luxurious interiors, and cutting-edge technology.
+        However, the brand faces criticism for higher base prices and some controversial design elements, such as the
+        oversized kidney grille on the 4 Series. Despite these drawbacks, BMW’s commitment to innovation and quality
+        ensures its continued success.
+      </p>
+
+    </div>
+  </div>
+  <br>
+
+
+  <div class="box">
+    <div class="text">
+      <p><b>Competitors</b></p>
+
+      <p>BMW competes with brands like Mercedes-Benz, Audi, and Lexus. While Mercedes-Benz emphasizes comfort and
+        luxury, Audi focuses on sleek designs and advanced tech. Lexus appeals to those prioritizing reliability. BMW’s
+        unique combination of performance, style, and innovation keeps it at the forefront of the luxury automotive
+        market.
+      </p>
+
+    </div>
+  </div>
+  <br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <br><br>
+
+  <div class="scroll-container">
+    <img src="https://hips.hearstapps.com/hmg-prod/images/2021-bmw-3-series-mmp-1-1593549868.jpg" height="400"
+      width="600">
+
+    <img src="https://images.hgmsites.net/hug/2021-bmw-4-series_100778021_h.jpg" height="400" width="600">
+
+    <img src="https://hips.hearstapps.com/hmg-prod/images/2021-bmw-8-series-gran-coupe-mmp-1-1603484580.jpg"
+      height="400" width="600">
+
+    <img src="https://di-uploads-pod24.dealerinspire.com/bmwofwarwick/uploads/2020/10/2021-BMW-5-Series-Interior.jpg"
+      height="400" width="600">
+
+    <img
+      src="https://di-uploads-pod18.dealerinspire.com/tulleybmwofnashua/uploads/2021/06/ifm0U5wYiLs6UqUQ4XWaq7YQVrtH1I2UQJx5Z5jc.jpeg"
+      height="400" width="600">
+
+    <img
+      src="https://static0.carbuzzimages.com/wordpress/wp-content/uploads/gallery-images/original/552000/0/552011.jpg"
+      height="400" width="600">
+
+    <img
+      src="https://www.momentummotorcars.com/imagetag/2915/52/l/Used-2021-BMW-4-Series-430i-Convertible-1706724248.jpg"
+      height="400" width="600">
+
+    <img
+      src="https://65e81151f52e248c552b-fe74cd567ea2f1228f846834bd67571e.ssl.cf1.rackcdn.com/ldm-images/2021-BMW-7-Series-interior-4.jpg"
+      height="400" width="600">
+  </div>
+  <br>
+  <br>
+
+  <div class="text1">
+    <p><b>Are you interested? <br>Experience the best quality,<br> 100% trust,<br> and exceptional after-sales service,
+        <br>all in one place.</b></p>
+  </div>
+  <br>
+
+  <center><button id="orderBtn">Order Now</button></center>
+  <br><br>
+
+
+  <!-- Popup Form -->
+  <div id="popupForm" class="popup-container">
+    <div class="popup-box">
+
+      <h2>Order Your Dream Car</h2>
+      <form id="orderForm">
+        <hr>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required><br>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required><br>
+
+
+        <label for="carModel">Car Model:</label>
+        <select id="carModel" name="carModel" required>
+          <option value="op1">2025 BMW 2 Series</option>
+          <option value="op2">2024 Audi SQ8 e-tron</option>
+          <option value="op3">2024 Honda Prologue</option>
+          <option value="op3">2025 Land Rover Range Rover Sport</option>
+          <option value="op3">Used 2021 BMW</option>
+        </select><br>
+
+
+        <label for="payment">Payment Method:</label>
+        <select id="payment" name="payment" required>
+          <option value="credit">Credit Card</option>
+          <option value="paypal">PayPal</option>
+          <option value="bank">Bank Transfer</option><br>
+        </select>
+
+        <label for="deliveryAddress">Delivery Address:</label>
+        <input type="text" id="deliveryAddress" name="deliveryAddress" required><br>
+
+        <label for="terms"><b>I agree to the terms and conditions<b></label>
+        <input type="checkbox" id="terms" name="terms" required>
+
+        <button type="submit">Submit Order</button>
+      </form>
+      <button id="closePopup" class="close-btn"><b>X</b></button>
+    </div>
+  </div>
+
+  <script>
+    // Open popup when 'ORDER' button is clicked
+    document.getElementById('orderBtn').addEventListener('click', function () {
+      document.getElementById('popupForm').style.display = 'flex';
+    });
+
+    // Close popup when 'X' button is clicked
+    document.getElementById('closePopup').addEventListener('click', function () {
+      document.getElementById('popupForm').style.display = 'none';
+    });
+
+    // Handle form submission
+    document.getElementById('orderForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Order Submitted Successfully!');
+      document.getElementById('popupForm').style.display = 'none';
+    });
+  </script>
+
+</body>
+
+</html>

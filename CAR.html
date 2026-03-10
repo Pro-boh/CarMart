@@ -1,0 +1,675 @@
+<html>
+<title>CARS</title>
+
+<head>
+
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .mini-footer {
+        text-align: center;
+        padding: 16px;
+        font-size: 12px;
+        background-color: #e9e9e9;
+        margin-top: 40px;
+      }
+
+      .mini-footer a {
+        color: black;
+        text-decoration: none;
+        margin: 0 6px;
+      }
+
+      /* VIDEO */
+      .video-container {
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+        border-radius: 25px;
+      }
+
+      .video-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* QUOTE STYLE */
+      .quote-overlay {
+        position: absolute;
+        top: 70%;
+        left: 10%;
+        transform: translate(-10%, -70%);
+        font-weight: bold;
+        text-align: left;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .quote-overlay span {
+        display: block;
+        font-size: 80px;
+        background: linear-gradient(100deg, yellow, white, cyan);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        opacity: 0;
+        animation: fadeIn 2s ease-in forwards;
+        text-shadow: 5px 5px 9px;
+      }
+
+      .quote-overlay span:nth-child(1) {
+        animation-delay: 0.5s;
+      }
+
+      .quote-overlay span:nth-child(2) {
+        animation-delay: 2.5s;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* BMW STYLE */
+      .cz1 {
+        border-radius: 25px;
+        margin: auto;
+        padding: 1px;
+        width: 100%;
+        background-color: #ffffff;
+      }
+
+      /* CARDS */
+      .container1 {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        position: relative;
+        padding: 20px 0;
+      }
+
+      .price {
+        color: red;
+        font-size: 32px;
+        text-align: center;
+      }
+
+      .card button {
+        border: none;
+        outline: 0;
+        padding: 12px 24px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+        border-radius: 35px;
+        transition: background-color 0.3s ease;
+      }
+
+      .card button:hover {
+        opacity: 0.7;
+        background-color: red;
+      }
+
+      /* POPUP BOX */
+      #popupForm {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+      }
+
+      .popup-box {
+        background: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        width: 550px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        text-align: center;
+      }
+
+      .popup-box h2 {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-top: 10px;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #555;
+        background-color: #222;
+        color: #fff;
+        border-radius: 5px;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #ff4136;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        border-radius: 50%;
+      }
+
+      /* USED SECTION */
+      .used {
+        width: 300px;
+        height: 260px;
+        border-radius: 25px;
+        box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
+        margin: auto;
+        padding: 1px;
+      }
+
+      .photo1 {
+        width: 100%;
+        height: 160px;
+        border-radius: 25px;
+      }
+
+      .para {
+        position: relative;
+        left: 10px;
+      }
+
+      .us {
+        text-align: right;
+        font-size: 50px;
+        font-family: 'Brush Script MT', cursive;
+        position: relative;
+        right: 20px;
+        color: transparent;
+        background-image: url('https://media.drive.com.au/obj/tx_q:50,rs:auto:1920:1080:1/caradvice/private/h3wdyded8jzpz86z7u5u');
+        background-size: cover;
+        background-position: center;
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+
+      /* Final Quote */
+      .gradient-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30vh;
+        font-size: 60px;
+        font-weight: bold;
+        text-align: center;
+        background: linear-gradient(90deg, red, blue, cyan, purple, yellow);
+        background-size: 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradient-animation 20s infinite;
+        line-height: 1.2;
+      }
+
+      @keyframes gradient-animation {
+        0% {
+          background-position: 0% 50%;
+        }
+
+        50% {
+          background-position: 100% 50%;
+        }
+
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+    </style>
+  </head>
+
+<body>
+
+  <header class="main-nav">
+    <div class="main-nav-inner">
+      <a href="CARMART HOME.html" class="nav-logo">CarMart</a>
+      <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav aria-label="Main navigation">
+        <ul class="nav-list" id="nav-list">
+          <li class="nav-item"><a href="CARMART HOME.html" class="nav-link">HOME</a></li>
+          <li class="nav-item"><a href="CAR.html" class="nav-link" aria-current="page">CARS</a></li>
+          <li class="nav-item"><a href="SEARCH.html" class="nav-link">🔎</a></li>
+          <li class="nav-item"><a href="TRADE.html" class="nav-link">TRADE</a></li>
+          <li class="nav-item"><a href="FAQs.html" class="nav-link">FAQ</a></li>
+          <li class="nav-item"><a href="About Car Mart.html" class="nav-link">ABOUT US</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <script>
+    document.getElementById('mobile-menu').addEventListener('click', function () {
+      document.getElementById('nav-list').classList.toggle('active');
+    });
+  </script>
+
+
+  <!-- VIDEO -->
+
+  <div class="video-container">
+    <video autoplay loop muted>
+      <source src="https://videos.pexels.com/video-files/16834483/16834483-uhd_2560_1440_24fps.mp4" type="video/mp4">
+    </video>
+
+    <div class="quote-overlay">
+
+      <span>Find your drive, fuel your dreams.</span>
+      <span>The perfect car is just a click away!</span>
+    </div>
+  </div><br>
+
+  <!-- CONTENT - BMW -->
+
+  <div class="cz1">
+    <br>
+    <center><img src="https://cdn.freebiesupply.com/logos/large/2x/bmw-logo-png-transparent.png" height="100px"
+        width="100px"></center><br>
+  </div><br>
+
+  <!-- <h3 style="font-family:sans-serif; font-size:30px; position: relative; left:15;">BMW, where your journey begins...</h3> -->
+  <br>
+
+  <div class="cz"><br>
+    <div class="container1">
+      <div class="card">
+        <a href="2025 BMW 2 Series.html"><img src="images/bmw_2_series.jpg" alt="car" width="100%" height="auto"
+            style="border-radius:25px;"></a>
+        <h1>2025 BMW 2 Series</h1>
+        <p class="price" style="color: black;">
+        <p class="price" style="color: black;"><strike>$60 000</strike></p>
+        <p class="price">$49 999</p>
+        <p>The 2025 BMW 2 Series combines sporty performance with a refined interior, offering 26-30 mpg combined and
+          dynamic enthusiast options like the M240i and M2.</p>
+        <p><button class="orderBtn">Order Now</button></p>
+      </div>
+
+      <div class="card">
+        <img src="https://enon-cars.com/wp-content/uploads/2024/11/2025-BMW-X30.webp" alt="car" width="100%"
+          height="auto" style="border-radius:25px;">
+        <h1>2025 BMW X3</h1>
+        <p class="price" style="color: black;">
+        <p class="price" style="color: black;"><strike>$65 000</strike></p>
+        <p class="price">$50 999</p>
+        <p>The 2025 BMW X3 blends a stylish redesign with high-tech features, enhanced performance, and turbocharged
+          efficiency, remaining a leader in the premium compact SUV market.</p>
+        <p><button class="orderBtn">Order Now</button></p>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://hips.hearstapps.com/hmg-prod/images/2025-bmw-m5-139-667b0f49f2fca.jpg?crop=0.837xw:0.707xh;0.0673xw,0.262xh&resize=2048:*"
+          alt="car" width="100%" height="auto" style="border-radius:25px;">
+        <h1>2025 BMW M5</h1>
+        <p class="price" style="color: black;">
+        <p class="price" style="color: black;"><strike>$130 000</strike></p>
+        <p class="price">$124 999</p>
+        <p>The 2025 BMW M5 redefines the sports sedan with 717 horsepower, a Plug-In Hybrid V8, luxurious features, and
+          a balance of performance, comfort, and EV capability.</p>
+        <p><button class="orderBtn">Order Now</button></p>
+      </div>
+    </div>
+    <br>
+  </div><br>
+
+  <!-- CONTENT - AUDI -->
+
+  <br>
+  <hr width="80%">
+  <div class="cz2">
+    <br><br>
+    <center>
+      <img src="https://www.freepnglogos.com/uploads/audi-logo-8.png" width="320px" height="100px">
+    </center><br><br>
+  </div><br><br>
+  <div class="cz">
+    <div class="container1"><br><br>
+
+      <div class="card">
+        <a href="2024 Audi SQ8 e-tron.html"><img src="images/audi_sq8.jpg" alt="car" width="100%" height="auto"
+            style="border-radius:25px;"></a>
+        <h1>2024 Audi SQ8 e-tron</h1>
+        <p class="price" style="color: black;">
+        <p class="price" style="color: black;"><strike>$90 000</strike></p>
+        <p class="price">$84 999</p>
+        <p>The 2024 Audi SQ8 e-tron is a luxurious electric SUV with 500 horsepower, a 253-mile range, and a blend of
+          performance, comfort, and premium design.</p>
+        <p><button class="orderBtn">Order Now</button></p>
+      </div>
+
+
+      <div class="card">
+        <img
+          src="https://media.drive.com.au/obj/tx_q:50,rs:auto:1920:1080:1/driveau/upload/cms/uploads/y9xdkezkav2yvmg9tg65"
+          alt="car" width="100%" height="auto" style="border-radius:25px;">
+        <h1>2025 Audi S3</h1>
+        <p class="price" style="color: black;">
+        <p class="price" style="color: black;"><strike>$56 000</strike></p>
+        <p class="price">$49 999</p>
+        <p>The 2025 Audi S3 is a compact luxury sport sedan offering agile handling, a 2.0L Turbo engine, and premium
+          interior quality, making it a thrilling and refined driving experience.</p>
+        <p><button class="orderBtn">Order Now</button></p>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://s1.cdn.autoevolution.com/images/news/audis-first-ever-rs-7-avant-is-digitally-ready-to-pick-a-fight-with-new-bmw-m5-touring-238693_1.jpg"
+          alt="car" width="100%" height="auto" style="border-radius:25px;">
+        <h1>2025 Audi RS 7</h1>
+        <p class="price" style="color: black;">
+        <p class="price" style="color: black;"><strike>$131 000</strike></p>
+        <p class="price">$129 999</p>
+        <p>The 2025 Audi RS 7 is a high-performance luxury sedan with a 4.0L twin-turbo V8, refined interior, and
+          exhilarating speed, offering a blend of luxury and practicality for enthusiasts.</p>
+        <p><button class="orderBtn">Order Now</button></p>
+      </div><br>
+    </div>
+    <br>
+  </div><br>
+
+
+  <!-- CONTENT - HONDA -->
+  <br>
+  <hr width="80%"><br>
+  <div class="cz3">
+
+    <br>
+    <center><img src="https://www.freepnglogos.com/uploads/honda-logo-png/honda-logo-png-19.png" height="100px"
+        width="100px"></center><br>
+  </div><br><br>
+
+  <div class="cz">
+    <div class="container1">
+      <div class="card">
+        <a href="2024 Honda Prologue.html"><img src="images/honda_prologue.jpg" alt="car" width="100%" height="auto"
+            style="border-radius:25px;"></a>
+        <h1>2024 Honda Prologue</h1>
+        <p class="price" style="color: black;">
+        <p class="price" style="color: black;"><strike>$60 000</strike></p>
+        <p class="price">$44 999</p>
+        <p>The 2024 Honda Prologue is a midsize electric SUV offering a spacious interior, decent range of 273-296
+          miles, and user-friendly tech, though it lacks performance excitement and a front trunk.</p>
+        <p><button class="orderBtn">Order Now</button></p>
+      </div>
+
+      <div class="card">
+        <img src="https://www.carreviewus.com/wp-content/uploads/2024/06/2025-Honda-Accord.jpg" alt="car" width="100%"
+          height="auto" style="border-radius:25px;">
+        <h1>2025 Honda Accord</h1>
+        <p class="price" style="color: black;">
+        <p class="price" style="color: black;"><strike>$36 000</strike></p>
+        <p class="price">$30 999</p>
+        <p>The 2025 Honda Accord is a fuel-efficient midsize sedan offering a comfortable interior, top safety ratings,
+          and up to 48 mpg in its hybrid version, making it a strong contender in its class.</p>
+        <p><button class="orderBtn">Order Now</button></p>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://www.graingerhonda.com/static/dealer-24638/Conquest_One/Blogs/2025-honda-grand-cr-v-virtually.jpg"
+          alt="car" width="100%" height="auto" style="border-radius:25px;">
+        <h1>2025 Honda Accord</h1>
+        <p class="price" style="color: black;">
+        <p class="price" style="color: black;"><strike>$39 000</strike></p>
+        <p class="price">$31 999</p>
+        <p>The 2025 Honda CR-V is a fuel-efficient compact crossover with a spacious interior, excellent build quality,
+          and high safety ratings, offering a great balance of comfort and practicality.</p>
+        <p><button class="orderBtn">Order Now</button></p>
+      </div>
+      <br><br>
+    </div>
+    <br>
+  </div>
+  <br><br>
+
+  <!-- CONTENT - LAND ROVER -->
+  <hr width="80%"><br>
+  <div class="cz4"><br>
+
+    <center><img src="https://www.freepnglogos.com/uploads/land-rover-png-logo/range-rover-land-rover-png-logo-16.png"
+        height="100px" width="350px"></center><br>
+  </div><br><br>
+
+  <div class="cz">
+    <div class="container1">
+      <div class="card">
+        <a href="2025 Land Rover Range Rover Sport.html"><img
+            src="https://pictures.dealer.com/i/ilwinnetkalr/1234/43db07f0fcc64522b0498ea8db3d925b.png" alt="car"
+            width="100%" height="auto" style="border-radius:25px;"></a>
+        <h1>2025 Land Rover <br> Range Rover Sport</h1>
+        <p class="price" style="color: black;">
+        <p class="price" style="color: black;"><strike>$112 000</strike></p>
+        <p class="price">$88 999</p>
+        <p>The 2025 Land Rover Range Rover Sport blends luxury, off-road capability, and hybrid efficiency, offering a
+          premium experience on both rugged terrains and city streets.</p>
+        <p><button class="orderBtn">Order Now</button></p>
+      </div>
+
+      <div class="card">
+        <img src="https://www.motortrend.com/uploads/sites/5/2021/05/2021-land-rover-range-rover-exterior-01.jpg"
+          alt="car" width="100%" height="auto" style="border-radius:25px;">
+        <h1>2025 Land Rover<br> Range Rover</h1>
+        <p class="price" style="color: black;">
+        <p class="price" style="color: black;"><strike>$117 000</strike></p>
+        <p class="price">$109 999</p>
+        <p>The 2025 Land Rover Range Rover combines luxury, off-road prowess, and hybrid efficiency, offering a smooth
+          ride, powerful performance, and unmatched capability.</p>
+        <p><button class="orderBtn">Order Now</button></p>
+      </div>
+
+      <div class="card">
+        <img src="https://www.motorbeam.com/wp-content/uploads/2025-Land-Rover-Defender-1200x733.jpg" alt="car"
+          width="100%" height="auto" style="border-radius:25px;">
+        <h1>2025 Honda Accord</h1>
+        <p class="price" style="color: black;">
+        <p class="price" style="color: black;"><strike>$85 000</strike></p>
+        <p class="price">$55 999</p>
+        <p>The 2025 Land Rover Defender combines rugged off-road capability, luxury features, and versatile body styles,
+          making it a top choice for adventure seekers and Land Rover enthusiasts.</p>
+        <p><button class="orderBtn">Order Now</button></p>
+      </div>
+      <br><br>
+    </div>
+    <br><br>
+  </div>
+  <br><br>
+
+
+  <br>
+  <div class="cz8">
+    <p class="us"><b>Don't hesitate to buy a used car<br>your pocket defines your budget, and smart choices make every
+        mile worthwhile!"</b>
+      <hr style="width:85%;">
+    </p><br>
+
+
+    <br>
+    <div class="container1">
+
+
+      <div class="used">
+        <a href="2021 BMW.html"><img class="photo1" src="images/bmw_3_series_used.jpg"></a>
+        <p class="para">Used 2021 BMW</p>
+        <p class="para" style="font-size: 20px;"><b>$19 999</b></p>
+      </div>
+
+      <div class="used">
+        <img class="photo1" src="https://ev-database.org/img/auto/BMW_i3/BMW_i3-01@2x.jpg">
+        <p class="para">Used 2015 Honda CR-V LX AWD</p>
+        <p class="para" style="font-size: 20px;"><b>$7 999</b></p>
+      </div>
+
+      <div class="used">
+        <img class="photo1"
+          src="https://media.ed.edmunds-media.com/honda/cr-v/2015/oem/2015_honda_cr-v_4dr-suv_touring_fq_oem_1_1600.jpg">
+        <p class="para">Used 2015 BMW i3 60 Ah</p>
+        <p class="para" style="font-size: 20px;"><b>$12 999</b></p>
+      </div>
+
+      <div class="used">
+        <img class="photo1"
+          src="https://media.carsandbids.com/cdn-cgi/image/width=2080,quality=70/438ad923cef6d8239e95d61e7d6849486bae11d9/photos/KZR7OeOR-POJy6mNQl0-(edit).jpg?t=167510788154">
+        <p class="para">Used 2019 Honda Accord Sport 2.0T Automatic</p>
+        <p class="para" style="font-size: 20px;"><b>$15 999</b></p>
+      </div>
+    </div><br>
+
+    <div class="container1">
+      <div class="used">
+        <img class="photo1"
+          src="https://hips.hearstapps.com/hmg-prod/images/2021-audi-s8-mmp-1-1591889218.jpg?crop=0.780xw:0.659xh;0.186xw,0.231xh&resize=2048:*">
+        <p class="para">Used 2021 Audi S8 Sedan</p>
+        <p class="para" style="font-size: 20px;"><b>$67 999</b></p>
+      </div>
+
+      <div class="used">
+        <img class="photo1" src="https://www.carpro.com/hubfs/img-6514-1404x1112.jpg">
+        <p class="para">Used 2022 Audi S5 Premium Plus Cabriolet</p>
+        <p class="para" style="font-size: 20px;"><b>$44 999</b></p>
+      </div>
+
+      <div class="used">
+        <img class="photo1"
+          src="https://www.europeanprestige.co.uk/blobs/stock/41/images/f8a8f830-01bf-47bf-9f11-1470fb08b1a9/1j6a7534.jpg?width=2000&height=1333">
+        <p class="para">Used 2019 Land Rover Range Rover V8 Supercharged SWB</p>
+        <p class="para" style="font-size: 20px;"><b>$35 999</b></p>
+      </div>
+
+      <div class="used">
+        <img class="photo1"
+          src="https://vehicle-images.dealerinspire.com/bb7c-110006212/SAL1L9E44SA425075/2ceaccb7a5e3ea546cdb8f08cb8d3104.jpg">
+        <p class="para">Used 2019 Land Rovser Range Rover HSE V6 Supercharged SWB</p>
+        <p class="para" style="font-size: 20px;"><b>$41 999</b></p>
+      </div><br><br>
+
+    </div><br>
+  </div><br><br>
+  <div class="cz">
+    <div class="gradient-text">
+      <p><b>Your journey, your choice we're here to guide you every step of the way!</b></p>
+    </div>
+  </div>
+  <br><br>
+
+
+  <!-- Popup Form -->
+  <div id="popupForm" class="popup-container">
+    <div class="popup-box">
+
+      <h2>Order Your Dream Car</h2>
+      <form id="orderForm">
+        <hr>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required><br>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required><br>
+
+
+        <label for="carModel">Car Model:</label>
+        <select id="carModel" name="carModel" required>
+          <option value="op1">2025 BMW 2 Series</option>
+          <option value="op2">2024 Audi SQ8 e-tron</option>
+          <option value="op3">2024 Honda Prologue</option>
+          <option value="op3">2025 Land Rover Range Rover Sport</option>
+          <option value="op3">Used 2021 BMW</option>
+        </select><br>
+
+
+        <label for="payment">Payment Method:</label>
+        <select id="payment" name="payment" required>
+          <option value="credit">Credit Card</option>
+          <option value="paypal">PayPal</option>
+          <option value="bank">Bank Transfer</option><br>
+        </select>
+
+        <label for="deliveryAddress">Delivery Address:</label>
+        <input type="text" id="deliveryAddress" name="deliveryAddress" required><br>
+
+        <label for="terms"><b>I agree to the terms and conditions<b></label>
+        <input type="checkbox" id="terms" name="terms" required>
+
+        <button type="submit">Submit Order</button>
+      </form>
+      <button id="closePopup" class="close-btn"><b>X</b></button>
+    </div>
+  </div>
+
+  <script>
+    // Open popup when 'ORDER' button is clicked
+    // #region agent log
+    fetch('http://127.0.0.1:7873/ingest/cad905fe-b25a-49ae-93e5-913a92da4294', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Debug-Session-Id': 'ba9f93' }, body: JSON.stringify({ sessionId: 'ba9f93', runId: 'post-fix', hypothesisId: 'H1', location: 'CAR.html:732', message: 'Count of elements with class orderBtn at init', data: { count: document.querySelectorAll(".orderBtn").length }, timestamp: Date.now() }) }).catch(() => { });
+    // #endregion agent log
+
+    document.querySelectorAll('.orderBtn').forEach(function (btn) {
+      btn.addEventListener('click', function (event) {
+        // #region agent log
+        fetch('http://127.0.0.1:7873/ingest/cad905fe-b25a-49ae-93e5-913a92da4294', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Debug-Session-Id': 'ba9f93' }, body: JSON.stringify({ sessionId: 'ba9f93', runId: 'post-fix', hypothesisId: 'H1', location: 'CAR.html:736', message: 'orderBtn click handler fired', data: { tag: event.target.tagName, text: event.target.innerText }, timestamp: Date.now() }) }).catch(() => { });
+        // #endregion agent log
+        document.getElementById('popupForm').style.display = 'flex';
+      });
+    });
+
+    // Close popup when 'X' button is clicked
+    document.getElementById('closePopup').addEventListener('click', function () {
+      document.getElementById('popupForm').style.display = 'none';
+    });
+
+    // Handle form submission
+    document.getElementById('orderForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Order Submitted Successfully!');
+      document.getElementById('popupForm').style.display = 'none';
+    });
+  </script>
+
+  <footer class="mini-footer">
+    <span>Quick links:</span>
+    <a href="CARMART HOME.html">Home</a>|
+    <a href="CAR.html">Cars</a>|
+    <a href="TRADE.html">Trade</a>|
+    <a href="FAQs.html">FAQ</a>|
+    <a href="About Car Mart.html">About Us</a>|
+    <a href="sitemap.html">Sitemap</a>
+  </footer>
+
+</body>
+
+</html>

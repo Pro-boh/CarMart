@@ -1,0 +1,112 @@
+<html>
+<title>Trade Your Car</title>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .trade-hero {
+      max-width: 1000px;
+      margin: 40px auto 20px auto;
+      padding: 30px;
+      border-radius: 25px;
+      background: linear-gradient(135deg, #001f3f, #0074d9);
+      color: white;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      text-align: left;
+    }
+
+    .trade-hero h1 {
+      margin-top: 0;
+      font-size: 36px;
+    }
+
+    .trade-steps {
+      max-width: 1000px;
+      margin: 0 auto 40px auto;
+      padding: 30px;
+      border-radius: 25px;
+      background-color: white;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .trade-steps h2 {
+      margin-top: 0;
+    }
+
+    .trade-steps ol {
+      padding-left: 20px;
+    }
+
+    .mini-footer {
+      text-align: center;
+      padding: 16px;
+      font-size: 12px;
+      background-color: #e9e9e9;
+    }
+
+    .mini-footer a {
+      color: black;
+      text-decoration: none;
+      margin: 0 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="main-nav">
+    <div class="main-nav-inner">
+      <a href="CARMART HOME.html" class="nav-logo">CarMart</a>
+      <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav aria-label="Main navigation">
+        <ul class="nav-list" id="nav-list">
+          <li class="nav-item"><a href="CARMART HOME.html" class="nav-link">HOME</a></li>
+          <li class="nav-item"><a href="CAR.html" class="nav-link">CARS</a></li>
+          <li class="nav-item"><a href="SEARCH.html" class="nav-link">🔎</a></li>
+          <li class="nav-item"><a href="TRADE.html" class="nav-link" aria-current="page">TRADE</a></li>
+          <li class="nav-item"><a href="FAQs.html" class="nav-link">FAQ</a></li>
+          <li class="nav-item"><a href="About Car Mart.html" class="nav-link">ABOUT US</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <script>
+    document.getElementById('mobile-menu').addEventListener('click', function () {
+      document.getElementById('nav-list').classList.toggle('active');
+    });
+  </script>
+
+  <section class="trade-hero">
+    <h1>Trade or Sell Your Car with Confidence</h1>
+    <p><b>Turn your current car into your next opportunity.</b> At CarMart, we make trading in or selling your vehicle
+      simple, transparent, and rewarding.</p>
+  </section>
+
+  <section class="trade-steps">
+    <h2>How It Works</h2>
+    <ol>
+      <li><b>Tell us about your car</b> – share basic details like make, model, year, mileage, and condition.</li>
+      <li><b>Get a fair estimate</b> – we evaluate current market value and provide a competitive offer.</li>
+      <li><b>Bring your car in</b> – visit one of our locations for a quick inspection and final confirmation.</li>
+      <li><b>Choose cash or trade-in credit</b> – apply your car’s value toward a new vehicle or receive payment.</li>
+    </ol>
+    <p>Have questions? Visit our <a href="FAQs.html">FAQ page</a> or <a href="About Car Mart.html">About Us</a> to learn
+      more about our process.</p>
+  </section>
+
+  <footer class="mini-footer">
+    <span>Quick links:</span>
+    <a href="CARMART HOME.html">Home</a>|
+    <a href="CAR.html">Cars</a>|
+    <a href="FAQs.html">FAQ</a>|
+    <a href="About Car Mart.html">About Us</a>|
+    <a href="sitemap.html">Sitemap</a>
+  </footer>
+</body>
+
+</html>

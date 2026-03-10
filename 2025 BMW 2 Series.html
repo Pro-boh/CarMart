@@ -1,0 +1,499 @@
+<html>
+<title>2025 BMW 2 Series</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+
+<style>
+  body {
+    font-family: sans-serif;
+    background-color: #2d2d2d;
+    margin: 0;
+    padding-top: var(--nav-height);
+  }
+
+  /* IMAGE */
+  .imgCont {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+
+  .quote {
+    font-family: Arial;
+    color: white;
+    font-size: clamp(2rem, 8vw, 120px);
+    z-index: 1;
+    text-align: center;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+  }
+
+  /* CONTENT */
+  .box {
+    border-radius: var(--border-radius);
+    background-color: #181818;
+    height: auto;
+    padding: 30px;
+    margin: 20px;
+  }
+
+  .text {
+    font-family: sans-serif;
+    color: E0E0E0;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  /* IMAGE GALLERY */
+
+  div.scroll-container {
+    background-color: #181818;
+    overflow: auto;
+    white-space: nowrap;
+    padding: 10px;
+    border-radius: 25px;
+  }
+
+  div.scroll-container img {
+    padding: 10px;
+    border-radius: 25px;
+    color: #181818;
+  }
+
+
+  /* FINAL CONTENT */
+
+  .text1 {
+    font-family: sans-serif;
+    font-size: 55px;
+
+    text-align: center;
+    background: linear-gradient(cyan, yellow);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* BUTTON DESIGN*/
+
+  button {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 15px 26px;
+    text-center: center;
+    font-size: 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: red;
+  }
+
+  /* POPUP FORM */
+
+  #popupForm {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .popup-box {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    border-radius: 15px;
+    width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+  }
+
+  .popup-box h2 {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin-top: 10px;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #555;
+    background-color: #222;
+    color: #fff;
+    border-radius: 5px;
+  }
+
+  button[type="submit"] {
+    background-color: #28a745;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #218838;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff4136;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
+  .close-btn:hover {
+    background-color: #c0392b;
+  }
+</style>
+</head>
+
+<body>
+
+  <header class="main-nav">
+    <div class="main-nav-inner">
+      <a href="CARMART HOME.html" class="nav-logo">CarMart</a>
+      <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav aria-label="Main navigation">
+        <ul class="nav-list" id="nav-list">
+          <li class="nav-item"><a href="CARMART HOME.html" class="nav-link">HOME</a></li>
+          <li class="nav-item"><a href="CAR.html" class="nav-link">CARS</a></li>
+          <li class="nav-item"><a href="SEARCH.html" class="nav-link">🔎</a></li>
+          <li class="nav-item"><a href="TRADE.html" class="nav-link">TRADE</a></li>
+          <li class="nav-item"><a href="FAQs.html" class="nav-link">FAQ</a></li>
+          <li class="nav-item"><a href="About Car Mart.html" class="nav-link">ABOUT US</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <script>
+    document.getElementById('mobile-menu').addEventListener('click', function () {
+      document.getElementById('nav-list').classList.toggle('active');
+    });
+  </script>
+
+  <!-- HERO SECTION -->
+  <div class="container">
+    <img class="imgCont" src="images/bmw_2_series.jpg">
+    <div class="quote">
+      <p>2025 BMW 2 Series</p>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="box">
+    <div class="text">
+      <h1>2025 BMW 2 SERIES</h1>
+      <p>Price Range: <b>$39 200 - $52 100</b></p>
+      <hr style="color: white;"><br>
+    </div>
+  </div>
+  <br>
+
+
+  <div class="box">
+    <div class="text">
+      <p><b>Engine Options and Performance</b></p>
+      <p>
+      <ul>
+        <li><b>230i Coupe:</b> Powered by a 2.0L turbocharged 4-cylinder engine, it produces 255 horsepower and 295
+          lb-ft of torque. The 230i accelerates from 0-60 mph in 5.5 seconds and achieves up to 26 mpg city and 35 mpg
+          highway.</li><br>
+
+        <li><b>M240i Coupe:</b> This model comes with a more powerful 3.0L turbocharged inline-6 engine, delivering 382
+          horsepower and 369 lb-ft of torque. It reaches 0-60 mph in just 4.1 seconds. The M240i xDrive offers improved
+          acceleration with a 5.3-second 0-60 time. Fuel economy is estimated at 23 mpg city and 32 mpg highway.</li>
+        <br>
+
+        <li><b>M2:</b> M2: For enthusiasts seeking ultimate performance, the M2 is equipped with a 3.0L turbocharged
+          inline-6 engine generating 473 horsepower and 406 lb-ft of torque. It accelerates from 0-60 mph in 3.9 seconds
+          and delivers a thrilling driving experience with precise handling and a focus on sportiness.</li><br>
+
+      </ul>
+      </p>
+    </div>
+  </div>
+  <br>
+
+  <div class="box">
+    <div class="text">
+      <p><b>Design and Exterior</b></p>
+      <p>
+      <ul>
+        <li><b>Dimensions:</b> The 2025 2 Series Coupe has a compact footprint, offering sporty proportions that include
+          a wider stance and lower roofline compared to its predecessor.</li><br>
+
+        <li><b>Front Fascia:</b> The signature BMW kidney grille is prominently featured, with illuminated options
+          available on higher trims.</li><br>
+
+        <li><b>Aerodynamics:</b> The car’s aggressive design is coupled with performance-enhancing aerodynamics,
+          contributing to its stability at higher speeds and its overall driving dynamics.</li><br>
+
+        <li><b>Wheel Options:</b> Standard wheels range from 17 inches on the 230i to 19 inches on the M240i.</li><br>
+      </ul>
+      </p>
+    </div>
+  </div>
+  <br>
+
+
+  <div class="box">
+    <div class="text">
+      <p><b>Interior and Features</b></p>
+      <p>
+      <ul>
+        <li><b>Technology:</b> The 2 Series comes equipped with a 12.3-inch digital instrument cluster and a 14.9-inch
+          central display for infotainment, featuring the latest BMW iDrive 8 system.</li><br>
+
+        <li><b>Seating and Comfort:</b> Standard sport seats with adjustable bolsters enhance comfort and support.
+          Optional upgrades include M Sport leather upholstery and heated/ventilated seats.</li><br>
+
+        <li><b>Cabin Materials: </b> The interior combines high-quality materials, including leather-wrapped surfaces,
+          M-specific trims, and ambient lighting to create a luxurious atmosphere.</li><br>
+
+        <li><b>Infotainment:</b> Standard features include Apple CarPlay, Android Auto, and wireless charging. Optional
+          systems include a premium sound system by Harman Kardon.</li><br>
+      </ul>
+      </p>
+    </div>
+  </div>
+  <br>
+
+
+  <div class="box">
+    <div class="text">
+      <p><b>Safety Features</b></p>
+      <p>
+      <ul>
+        <li>The 2025 BMW 2 Series is equipped with a comprehensive suite of safety features, including:<br><br>
+          <ul>
+            <li>Active Blind Spot Detection</li><br>
+            <li>Lane Departure Warning</li><br>
+            <li>Forward Collision Warning</li><br>
+            <li>Automatic Emergency Braking</li><br>
+            <li>Rearview Camera and Parking Sensors</li><br>
+            <li>Adaptive Cruise Control</li><br>
+          </ul>
+        </li><br>
+
+
+        <li>BMW’s Driving Assistance Professional Package adds additional features like Extended Traffic Jam Assistant
+          and Automatic Lane Change for added convenience.</li><br>
+      </ul>
+      </p>
+    </div>
+  </div>
+  <br>
+
+
+  <div class="box">
+    <div class="text">
+      <p><b>Driving Experience</b></p>
+      <p>
+      <ul>
+        <li><b>Handling and Suspension:</b> The 2 Series offers a sporty driving experience, with responsive steering
+          and an emphasis on dynamic handling. The M240i features an upgraded adaptive suspension for a balance of
+          comfort and performance.</li><br>
+
+        <li><b>All-Wheel Drive (xDrive): </b> Available on both the 230i and M240i, the xDrive system enhances traction,
+          especially in challenging weather conditions, providing superior grip on both wet and dry roads.</li><br>
+      </ul>
+      </p>
+    </div>
+  </div>
+  <br>
+
+
+  <div class="box">
+    <div class="text">
+      <p><b>Fuel Economy and Efficiency</b></p>
+      <p>
+      <ul>
+        <li><b>230i Coupe:</b> The fuel economy is estimated at 26 mpg city and 35 mpg highway, which is competitive
+          within its class.</li><br>
+
+        <li><b>M240i Coupe: </b> This model achieves 23 mpg city and 32 mpg highway, providing a solid balance of power
+          and efficiency.</li><br>
+
+        <li><b>M2: </b> While more focused on performance, the M2 still offers reasonable fuel efficiency given its
+          performance-oriented nature, with estimates of 19 mpg city and 26 mpg highway.</li><br>
+      </ul>
+      </p>
+    </div>
+  </div>
+  <br>
+
+
+  <div class="box">
+    <div class="text">
+      <p><b>Pricing and Trims</b></p>
+      <p>
+      <ul>
+        <li>The <b>230i Coupe </b> starts around $40,375 with RWD and can be upgraded to xDrive for enhanced traction.
+        </li><br>
+
+        <li>The <b>M240i</b> is priced starting at $47,595 and offers more aggressive styling, higher performance, and
+          enhanced features compared to the 230i.</li><br>
+
+        <li>The <b>M2:</b>starts around $63,000 and provides the highest performance, handling, and styling cues
+          tailored for driving enthusiasts.</li><br>
+      </ul>
+      </p>
+    </div>
+  </div>
+  <br>
+
+
+  <div class="box">
+    <div class="text">
+      <p><b>Competitors</b></p>
+      <p>
+      <ul>
+        <li>The BMW 2 Series competes with models like the Audi S3, Mercedes-Benz CLA-Class, and the Genesis G70,
+          offering a unique combination of sporty dynamics, luxury features, and performance.</li><br>
+      </ul>
+    </div>
+  </div>
+  <br><br>
+
+  <div class="scroll-container">
+    <img src="https://cdn.motor1.com/images/mgl/P3ggK2/s1/2025-bmw-2-series-gran-coupe-rendering.jpg" height="400"
+      width="600">
+
+    <img src="https://bmwofspringfield.bhaimg.com/website/bmw/2025-2-series-interior.jpg" height="400" width="600">
+
+    <img src="https://images.carexpert.com.au/resize/3000/-/app/uploads/2024/07/2025-bmw-m240i-xdrive-4.jpg"
+      height="400" width="600">
+
+    <img
+      src="https://www.motortrend.com/uploads/sites/5/2020/11/2020-BMW-M235i-xDrive-Gran-Coupe-19.jpg?w=768&width=768&q=75&format=webp"
+      height="400" width="600">
+
+    <img
+      src="https://hips.hearstapps.com/hmg-prod/images/2025-bmw-2-series-gran-coupe-139-670eb7a2be3f9.jpg?crop=1xw:1xh;center,top&resize=980:*"
+      height="400" width="600">
+
+    <img
+      src="https://cdn.jdpower.com/JDP_2025%20BMW%20M240i%20xDrive%20iDrive%208_5%20Controller%20European%20Model.jpeg"
+      height="400" width="600">
+
+    <img
+      src="https://media.drive.com.au/obj/tx_q:50,rs:auto:1920:1080:1/driveau/upload/cms/uploads/umabtij7ts7c3u4jj6io"
+      height="400" width="600">
+
+    <img
+      src="https://media.drive.com.au/obj/tx_q:50,rs:auto:1920:1080:1/driveau/upload/cms/uploads/75d747f6-ccbc-52f6-bb07-877b5d050000"
+      height="400" width="600">
+  </div>
+  <br>
+  <br>
+
+  <div class="text1">
+    <p><b>Are you interested? <br>Experience the best quality,<br> 100% trust,<br> and exceptional after-sales service,
+        <br>all in one place.</b></p>
+  </div>
+  <br>
+
+
+  <center><button id="orderBtn">Order Now</button></center>
+  <br><br>
+
+
+  <!-- Popup Form -->
+  <div id="popupForm" class="popup-container">
+    <div class="popup-box">
+
+      <h2>Order Your Dream Car</h2>
+      <form id="orderForm">
+        <hr>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required><br>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required><br>
+
+
+        <label for="carModel">Car Model:</label>
+        <select id="carModel" name="carModel" required>
+          <option value="op1">2025 BMW 2 Series</option>
+          <option value="op2">2024 Audi SQ8 e-tron</option>
+          <option value="op3">2024 Honda Prologue</option>
+          <option value="op3">2025 Land Rover Range Rover Sport</option>
+          <option value="op3">Used 2021 BMW</option>
+        </select><br>
+
+
+        <label for="payment">Payment Method:</label>
+        <select id="payment" name="payment" required>
+          <option value="credit">Credit Card</option>
+          <option value="paypal">PayPal</option>
+          <option value="bank">Bank Transfer</option><br>
+        </select>
+
+        <label for="deliveryAddress">Delivery Address:</label>
+        <input type="text" id="deliveryAddress" name="deliveryAddress" required><br>
+
+        <label for="terms"><b>I agree to the terms and conditions<b></label>
+        <input type="checkbox" id="terms" name="terms" required>
+
+        <button type="submit">Submit Order</button>
+      </form>
+      <button id="closePopup" class="close-btn"><b>X</b></button>
+    </div>
+  </div>
+
+  <script>
+    // Open popup when 'ORDER' button is clicked
+    document.getElementById('orderBtn').addEventListener('click', function () {
+      document.getElementById('popupForm').style.display = 'flex';
+    });
+
+    // Close popup when 'X' button is clicked
+    document.getElementById('closePopup').addEventListener('click', function () {
+      document.getElementById('popupForm').style.display = 'none';
+    });
+
+    // Handle form submission
+    document.getElementById('orderForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Order Submitted Successfully!');
+      document.getElementById('popupForm').style.display = 'none';
+    });
+  </script>
+</body>
+
+</html>
