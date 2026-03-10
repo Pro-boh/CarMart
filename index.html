@@ -1,0 +1,1006 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* VIDEO STYLE */
+    .container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 30%;
+      left: 2%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .design {
+      color: #f0f0f0;
+    }
+
+    /* SCROLL EFFECT */
+    .spacer {
+      height: auto;
+    }
+
+    .text-container {
+      text-align: left;
+      font-size: 5em;
+      color: #f0f0f0;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+      text-shadow: 1px 1px 6px #ffffff;
+    }
+
+    .text-container.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .word {
+      display: inline-block;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      font-size: 70px;
+    }
+
+    /* Add delay for each word */
+    .word:nth-child(1) {
+      animation-delay: 0.5s;
+    }
+
+    .word:nth-child(2) {
+      animation-delay: 1.8s;
+    }
+
+    .word:nth-child(3) {
+      animation-delay: 2.3s;
+    }
+
+    .word:nth-child(4) {
+      animation-delay: 2.6s;
+    }
+
+    .word:nth-child(5) {
+      animation-delay: 3.2s;
+    }
+
+    .word:nth-child(6) {
+      animation-delay: 4.0s;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* AFTER VIDEO STYLE */
+    .paragraph {
+      font-size: 65px;
+      display: inline-block;
+      text-align: center;
+      background: linear-gradient(red, blue);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      right: 0;
+    }
+
+    /* LOGO SECTION */
+    .cz1 {
+      background-image: url('https://static.vecteezy.com/system/resources/thumbnails/003/127/955/small_2x/abstract-white-and-grey-background-with-dynamic-waves-shape-free-vector.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* PARAGRAPH HOVER */
+    .content {
+      padding: 20px;
+    }
+
+    .hover-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .hover-container .hover-paragraph {
+      display: none;
+      font-size: 16px;
+      color: #333;
+      margin-top: 10px;
+    }
+
+    .hover-container:hover .hover-paragraph {
+      display: block;
+    }
+
+    /* SLIDESHOW */
+    .mySlides {
+      display: none
+    }
+
+    img {
+      vertical-align: middle;
+      border-radius: 25px;
+    }
+
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+    }
+
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active,
+    .dot:hover {
+      background-color: #717171;
+    }
+
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+
+    @keyframes fade {
+      from {
+        opacity: .4
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    @media only screen and (max-width: 300px) {
+
+      .prev,
+      .next,
+      .text {
+        font-size: 11px
+      }
+    }
+
+    /* BOX CONTAINERS */
+    .container1,
+    .container2 {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      flex-wrap: wrap;
+      position: relative;
+      padding: 20px 0;
+    }
+
+    .card {
+      width: 320px;
+      height: 320px;
+    }
+
+    .act {
+      text-decoration: none;
+      color: black;
+    }
+
+    /* MESSAGE DESIGN */
+    .aaa {
+      font-size: 45px;
+      text-align: center;
+      background: linear-gradient(blue, cyan);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .aaa1 {
+      font-size: 40px;
+      text-align: center;
+      background: linear-gradient(red, blue);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .pp {
+      position: relative;
+      border-radius: 25px;
+    }
+
+    /* NEW ARRIVALS */
+    .con {
+      background-image: url('https://static.vecteezy.com/system/resources/thumbnails/003/127/955/small_2x/abstract-white-and-grey-background-with-dynamic-waves-shape-free-vector.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .car {
+      width: 400px;
+      height: 500px;
+      padding: 3px;
+      margin: 10px auto;
+      text-align: justify;
+    }
+
+    .price {
+      color: red;
+      font-size: 32px;
+      text-align: center;
+    }
+
+    /* NEWS SECTION */
+    .container5 {
+      max-width: 80%;
+      margin: 50px auto;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.004);
+      border-radius: 25px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .header {
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 2.2em;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+    }
+
+    .header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #ff7e5f, #feb47b);
+      clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
+      z-index: -1;
+    }
+
+    .headline {
+      font-size: 2em;
+      color: #333;
+      text-align: center;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .headline::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: #ff7e5f;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    .news-highlight {
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      animation: slideIn 1s ease-out;
+    }
+
+    .news-highlight-title {
+      font-size: 1.6em;
+      color: #ff7e5f;
+      margin-bottom: 10px;
+    }
+
+    .news-highlight-description {
+      font-size: 1.2em;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .car-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .car-card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transform: scale(1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .car-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .car-image {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .car-details {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .car-title {
+      font-size: 1.4em;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .car-description {
+      font-size: 1em;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* MARQUEE */
+    .marquee-container {
+      width: 100%;
+      overflow: hidden;
+      background-color: #ffffff;
+      padding: 10px 0;
+      border-radius: 25px;
+    }
+
+    .marquee {
+      display: flex;
+      gap: 10px;
+      animation: marquee 50s linear infinite;
+    }
+
+    .marquee img {
+      width: 1000px;
+      height: 200px;
+      object-fit: cover;
+      border: 3px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(100%);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* STORE DESIGN */
+    .storeConrainer {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .store {
+      width: 280px;
+      height: 400px;
+      border-radius: 25px;
+      text-align: left;
+      background-color: white;
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+    .imgstore {
+      width: 280px;
+      height: 200px;
+      border-radius: 25px;
+    }
+
+    .info {
+      width: 240px;
+      height: auto;
+      border-radius: 25px;
+      padding: 20px;
+    }
+
+    /* FOOTER TABLE */
+    table {
+      width: 55%;
+      text-align: left;
+      color: black;
+      font-family: arial;
+      font-size: 12px;
+      text-decoration: none;
+      border-collapse: separate;
+      border-spacing: 10px;
+      table-layout: fixed;
+    }
+
+    .linkf {
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="main-nav">
+    <div class="main-nav-inner">
+      <a href="index.html" class="nav-logo">CarMart</a>
+      <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav aria-label="Main navigation">
+        <ul class="nav-list" id="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link" aria-current="page">HOME</a></li>
+          <li class="nav-item"><a href="CAR.html" class="nav-link">CARS</a></li>
+          <li class="nav-item"><a href="SEARCH.html" class="nav-link">🔎</a></li>
+          <li class="nav-item"><a href="TRADE.html" class="nav-link">TRADE</a></li>
+          <li class="nav-item"><a href="FAQs.html" class="nav-link">FAQ</a></li>
+          <li class="nav-item"><a href="About_Car_Mart.html" class="nav-link">ABOUT US</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <script>
+    document.getElementById('mobile-menu').addEventListener('click', function () {
+      document.getElementById('nav-list').classList.toggle('active');
+    });
+  </script>
+
+  <div class="container">
+    <video width="100%" height="auto" style="border-radius:25px; top:60;" autoplay loop muted>
+      <source src="https://videos.pexels.com/video-files/857267/857267-hd_1920_1080_24fps.mp4" type="video/mp4">
+    </video>
+    <div class="overlay">
+
+      <!-- SCROLING EFFECT-->
+
+      <div class="spacer"></div> <!-- Space for scrolling -->
+
+      <div class="text-container" id="scroll-trigger">
+        <span class="word"><img src="images/logo.png" width="260px" height="50px"><br><b>CarMart:</b></span><br>
+        <span class="word">Where innovation</span>
+        <span class="word">meets opportunity.</span>
+        <br>
+        <span class="word">Discover</span>
+        <span class="word">your perfect drive,</span>
+        <span class="word">online and on demand.</span>
+      </div>
+
+      <div class="spacer"></div> <!-- More space below -->
+
+      <script>
+        const textContainer = document.getElementById('scroll-trigger');
+
+        window.addEventListener('scroll', () => {
+          const rect = textContainer.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+
+          // Check if the container is in view
+          if (rect.top < windowHeight && rect.bottom > 0) {
+            textContainer.classList.add('show');
+          }
+        });
+      </script>
+
+
+
+    </div>
+  </div>
+  <div>
+  </div>
+  <br><br>
+
+
+
+  <div class="cz1"><br>
+    <center><img src="images/logo.png" height="150px" width="400px"></center><br>
+  </div><br><br>
+
+
+
+
+  <div class="pp">
+    <div class="content">
+      <div class="hover-container"><br>
+        <p class="aaa"><strong><b>Welcome to CarMart,</b></strong></p>
+        <p class="aaa">
+        <p class="hover-paragraph"
+          style="font-family:sans-serif;
+font-size:30px; text-align: center; background: linear-gradient(blue ,purple);-webkit-background-clip: text; background-clip: text;-webkit-text-fill-color: transparent;">
+          where your journey to the perfect ride begins!<br> We're excited to be part of your car-buying experience,
+          offering you a curated selection of vehicles that blend style, performance, and affordability.<br><b> At
+            CarMart, we don't just sell cars; we provide personalized experiences, making sure every detail of your car
+            search is tailored to your needs and desires.</b> <br>From sleek sports cars to reliable family vehicles,
+          our collection is as diverse as your lifestyle. Our dedicated team is here to guide you with expert advice and
+          ensure that your new car not only meets but exceeds your expectations. Thank you for choosing CarMart — the
+          road to your next adventure starts here! Let’s drive forward together.<br></p>
+      </div>
+    </div>
+    <br>
+
+    <!-- IMAGE SLIDESHOW -->
+
+    <div class="slideshow-container">
+
+      <div class="mySlides fade">
+        <img src="images/banner1.png" style="width:100%">
+      </div>
+
+      <div class="mySlides fade">
+        <img
+          src="https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/gallery_slide/public/images/car-reviews/first-drives/legacy/autocar-future-cars.jpg?itok=8vX69H3w"
+          style="width:100%">
+      </div>
+
+      <div class="mySlides fade">
+        <img src="images/banner2.png" style="width:100%">
+      </div>
+
+      <div class="mySlides fade">
+        <img src="images/banner3.png" style="width:100%">
+      </div>
+
+      <div class="mySlides fade">
+        <img src="images/banner1.png" style="width:100%">
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+      <span class="dot" onclick="currentSlide(5)"></span>
+    </div>
+
+    <script>
+      let slideIndex = 0;
+
+      function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        setTimeout(showSlides, 10000); // Change image every 10 seconds
+      }
+
+      showSlides();
+    </script>
+
+    <br><br><br>
+
+
+    <!-- CAR BRANDS -->
+    <p style="text-align:center; font-size: 50;"><b>Shop By Brands</b></p>
+
+    <div class="container1">
+      <a class="act" href="https://www.bmw.com/en/index.html">
+        <div class="card">
+          <img align="center" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/800px-BMW.svg.png"
+            width="300px" height="300px" style="padding: 50px;">
+      </a>
+    </div>
+
+    <a class="act" href="https://www.audi.com/en.html">
+      <div class="card">
+        <img align="center"
+          src="https://static0.carbuzzimages.com/wordpress/wp-content/uploads/2024/03/314-1.png?q=50&fit=crop&w=480&dpr=1.5"
+          width="300px" height="300px" style="padding: 50px;">
+    </a>
+  </div>
+
+  <a class="act" href="https://www.honda.com/">
+    <div class="card">
+      <img align="center" src="https://www.freepnglogos.com/uploads/honda-logo-png/honda-logo-png-19.png" width="300px"
+        height="300px" style="padding: 50px;">
+  </a>
+  </div>
+
+  <a class="act" href="https://www.landrover.com/market-selector/index.html">
+    <div class="card">
+      <img align="center" src="https://logoeps.com/wp-content/uploads/2013/05/range-rover-vector-logo.png" width="300px"
+        height="300px" style="padding: 50px;">
+  </a>
+  </div>
+  </div>
+  <br><br>
+
+
+  <p class="paragraph"><b>Your journey, your choice we're here to guide you every step of the way!</b></p>
+  <br><br></div><br>
+
+
+  <!-- NEW ARRIVELS -->
+  <div class="con"><br>
+    <br>
+    <p style="text-align:center; font-size: 50;"><b>New Arrivals</b></p>
+
+    <div class="container2">
+      <div class="car">
+        <a href="2025_BMW_2_Series.html"><img src="images/bmw_2_series.jpg" alt="car" width="100%" height="auto"
+            style="border-radius:25px;"></a>
+        <h1>2025 BMW 2 Series</h1>
+        <p class="price" style="color: black;">
+        <p class="price" style="color: black;"><strike>$60 000</strike></p>
+        <p class="price">$49 999</p>
+      </div>
+
+      <div class="car">
+        <a href="2024_Audi_SQ8_e-tron.html"><img src="images/audi_sq8.jpg" alt="car" width="100%" height="auto"
+            style="border-radius:25px;"></a>
+        <h1>2024 Audi SQ8 e-tron</h1>
+        <p class="price" style="color: black;">
+        <p class="price" style="color: black;"><strike>$90 000</strike></p>
+        <p class="price">$84 999</p>
+      </div>
+
+      <div class="car">
+        <a href="2025_Land_Rover_Range_Rover_Sport.html"><img src="images/range_rover_sport.png" alt="car" width="100%"
+            height="auto" style="border-radius:25px;"></a>
+        <h1>2025 Land Rover <br> Range Rover Sport</h1>
+        <p class="price" style="color: black;">
+        <p class="price" style="color: black;"><strike>$112 000</strike></p>
+        <p class="price">$88 999</p>
+      </div>
+
+    </div>
+  </div>
+  <br><br><br>
+
+
+  <!-- NEWS -->
+
+  <header class="header">
+    <b>Hot deals!...</b>
+  </header><br>
+
+  <div class="container5">
+    <section class="news-highlight">
+      <h2 class="news-highlight-title"><b>Massive Car Sale Event of the Year!</b></h2>
+      <p class="news-highlight-description">
+        Save big on your dream cars! Our exclusive car sale features luxury sedans, family SUVs, and compact cars at
+        unbeatable prices. Limited time only—don't miss out!
+      </p>
+    </section>
+
+    <section>
+      <h2 class="headline">Featured Cars</h2>
+      <div class="car-grid">
+        <div class="car-card">
+          <img
+            src="https://static1.hotcarsimages.com/wordpress/wp-content/uploads/2022/12/mercedes-benz-c63_s_amg_e_performance-2023-feature.jpg"
+            alt="Luxury Sedan" class="car-image">
+          <div class="car-details">
+            <h3 class="car-title">2023 Luxury Sedan</h3>
+            <p class="car-description">Price: $25,000<br> Stylish, fuel-efficient, and equipped with advanced features.
+            </p>
+          </div>
+        </div>
+        <div class="car-card">
+          <img
+            src="https://images.cars.com/cldstatic/wp-content/uploads/kia-telluride-2022-06-exterior-front-angle-suv-white-scaled.jpg"
+            alt="Family SUV" class="car-image">
+          <div class="car-details">
+            <h3 class="car-title">2022 Family SUV</h3>
+            <p class="car-description">Price: $30,000<br> Spacious and perfect for family adventures.</p>
+          </div>
+        </div>
+        <div class="car-card">
+          <img
+            src="https://www.autotrader.ca/editorial/media/188692/a2-1a-2021-honda-civic-sedan-touring-honda.jpg?width=1920&height=1080&v=1d6b9abb95c7a00"
+            alt="Compact Car" class="car-image">
+          <div class="car-details">
+            <h3 class="car-title">2021 Compact Car</h3>
+            <p class="car-description">Price: $15,000<br> Affordable and perfect for city commutes.</p>
+          </div>
+        </div>
+        <div class="car-card">
+          <img
+            src="https://a57.foxnews.com/static.foxnews.com/foxnews.com/content/uploads/2022/09/1200/675/dark-horse-1.jpg?ve=1&tl=1"
+            alt="Sports Car" class="car-image">
+          <div class="car-details">
+            <h3 class="car-title">2023 Sports Car</h3>
+            <p class="car-description">Price: $50,000<br> High performance and a thrill to drive.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <br><br>
+
+  <!-- STORE DESIGN -->
+
+  <p style="text-align:center; font-size: 50;"><b>Visit Us World-wide </b></p>
+
+  <div class="storeConrainer">
+    <div class="store">
+      <img
+        src="https://www.easycarsuae.com/media/4905/setting-up-a-car-showroom-in-the-uae-what-you-need-to-know-ec-uae.png"
+        class="imgstore">
+      <div class="info">
+        <p>
+        <h3 style="color:black;">Car Mart - New York, USA</h3>
+        123 Manhattan Ave, New York, NY 10001, USA</p>
+        <p>📞 +1 000-000-0000</p>
+      </div>
+    </div>
+
+
+    <div class="store">
+      <img
+        src="https://img.freepik.com/premium-photo/cars-line-up-cars-new-car-showroom-luxury-modern-cars-sale-new-cars-showroom_189959-19754.jpg"
+        class="imgstore">
+      <div class="info">
+        <p>
+        <h3 style="color:black;">Car Mart - London, UK</h3>
+        45 King’s Road, Chelsea, London SW3 4QX, United Kingdom</p>
+        <p>📞 +44 000-0000-000</p>
+      </div>
+    </div>
+
+
+    <div class="store">
+      <img src="https://www.shutterstock.com/image-photo/premises-dealership-toyota-cars-buying-600nw-2179152311.jpg"
+        class="imgstore">
+      <div class="info">
+        <p>
+        <h3 style="color:black;">Car Mart - Sydney, Australia</h3>
+        89 Harbour Drive, Sydney NSW 2000, Australia</p>
+        <p>📞 +61 0000-000-000</p>
+      </div>
+    </div>
+
+
+    <div class="store">
+      <img src="https://cdn.pixabay.com/photo/2024/03/02/08/40/showroom-8607898_1280.jpg" class="imgstore">
+      <div class="info">
+        <p>
+        <h3 style="color:black;">Car Mart - Toronto, Canada</h3>
+        72 Maple Lane, Toronto, ON M5J 1A7, Canada</p>
+        <p>📞 +1 000-000-0000</p>
+      </div>
+    </div>
+
+
+    <div class="store">
+      <img src="https://www.securities.io/wp-content/uploads/2024/05/Automotive-Direct-Sales-1.png" class="imgstore">
+      <div class="info">
+        <p>
+        <h3 style="color:black;">Car Mart - Dubai, UAE</h3>
+        15 Sheikh Zayed Blvd, Downtown, Dubai 00000, United Arab Emirates</p>
+        <p>📞 +971 000-000-0000</p>
+      </div>
+    </div>
+  </div><br><br>
+
+
+  <!-- Marquee Container -->
+  <div class="marquee-container">
+    <div class="marquee">
+      <img
+        src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+      <img
+        src="https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+      <img
+        src="https://images.pexels.com/photos/2365572/pexels-photo-2365572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+      <img
+        src="https://images.pexels.com/photos/248370/pexels-photo-248370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+      <img src="https://images.pexels.com/photos/193021/pexels-photo-193021.jpeg?auto=compress&cs=tinysrgb&w=600">
+      <img
+        src="https://images.pexels.com/photos/1008659/pexels-photo-1008659.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+      <img
+        src="https://images.pexels.com/photos/376361/pexels-photo-376361.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+      <img
+        src="https://www.carpro.com/hs-fs/hubfs/2023-Chevrolet-Corvette-Z06-credit-chevrolet.jpeg?width=1020&name=2023-Chevrolet-Corvette-Z06-credit-chevrolet.jpeg">
+    </div>
+  </div>
+
+  <br><br><br>
+
+
+  <!-- FOOTER -->
+
+  <div class="foo">
+    <br><br>
+    <center>
+      <br>
+      <table>
+        <tr>
+          <th> <a style="color:black;" href="index.html"> HOME </a>
+            &nbsp;&nbsp;&nbsp;&nbsp; </th>
+          <th> <a style="color:black;" href="CAR.html"> CARS </a>
+          </th>
+          <th> <a style="color:black;" href="CAR.html"> SEARCH </a>
+            &nbsp; </th>
+          <th> <a style="color:black;" href="TRADE.html"> TRADE </a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+          <th> <a style="color:black;" href="FAQs.html"> FAQs </a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+          <th> <a style="color:black;" href="About_Car_Mart.html"> ABOUT US </a>
+            &nbsp;&nbsp;&nbsp;&nbsp; </th>
+        </tr>
+        <tr>
+          <td></td>
+          <td> <a style="color:black;" href="2025_BMW_2_Series.html"> 2025 BMW 2 Series </a>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td> <a style="color:black;" href="TERMS.HTML"> Terms & Conditions </a>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td> <a style="color:black;" href="2024_Audi_SQ8_e-tron.html"> 2024 Audi SQ8 e-tron
+            </a> </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td> <a style="color:black;" href="2024_Honda_Prologue.html"> 2024 Honda Prologue
+            </a> </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td> <a style="color:black;" href="2025_Land_Rover_Range_Rover_Sport.html"> 2025 Land
+              Rover Range Rover Sport </a> </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td> <a style="color:black;" href="2021_BMW.html"> 2021 BMW(Used) </a> </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+      </table>
+      <br>
+      <hr><br>
+
+
+      <p style="text-align: justify; width:80%;">
+        Thank you for visiting <b>CarMart</b>, your trusted global car dealership with locations <b>all over the
+          world</b>. At CarMart, we are dedicated to delivering an exceptional car buying experience with a wide
+        selection of quality vehicles, top-notch customer service, and competitive pricing. For inquiries, please reach
+        our Head Office at +000 0000 0000 or our Global Customer Support team at <b>+000 0000 0000, available Monday to
+          Friday from 9 AM to 6 PM.</b> You can also find us in various regions worldwide, providing personalized
+        assistance at each location.<br><br>
+
+        We proudly offer a variety of payment options, including major credit cards such as <b>Visa, MasterCard, PayPal,
+          Bank Transfers, </b>and <b>Financing options</b> to help you secure your dream car. Our Finance Department
+        offers tailored financing solutions with flexible terms to suit your budget and needs.<br><br>
+
+        At CarMart, we understand the importance of staying informed. Subscribe to our newsletter for updates on
+        exclusive promotions, new vehicle arrivals, seasonal offers, and special discounts. You can also follow us on
+        our social media platforms, including <b>Facebook, Instagram, Twitter, and LinkedIn,</b> for real-time updates,
+        customer reviews, and car maintenance tips.
+
+        We take pride in our commitment to privacy and customer satisfaction. Our Privacy Policy outlines how we protect
+        your data, while our <b>Terms and Conditions</b> ensure a smooth transaction for every customer. Please review
+        our <b>Refund and Return Policy to learn more</b> about the process in the rare event that a return is needed.
+        We also provide detailed <b>warranty information</b> on all vehicles sold to ensure you have peace of mind with
+        your purchase.<br><br>
+
+        For our global customers, CarMart is committed to offering the best service, whether you're visiting us at one
+        of our many locations or browsing online. Our cars are available with a comprehensive warranty, and we offer
+        easy trade-in options to help you upgrade your ride. <b>Availability and prices are subject to change based on
+          market demand</b>, and we encourage you to reach out for the latest offers.<br><br>
+      </p><br>
+
+
+
+      <p style="font-size:13px;">© 2025 CarMart. Developed for academic purpose. COST 22073 - Web Development <br>
+        Contact us at <a href="/cdn-cgi/l/email-protection#a4d7d1d4d4cbd6d0e4c7c5d6c9c5d6d08ac7cbc9" class="linkf"><span class="__cf_email__" data-cfemail="80f3f5f0f0eff2f4c0e3e1f2ede1f2f4aee3efed">[email&#160;protected]</span></a></p><br>
+  </div>
+  </center>
+
+
+
+  <!--NANIGATION BAR-->
+
+  <ul>
+    <li class="link"><a href="index.html" class="link"><b>HOME</b></a></li> <!-- LOCATIONS HAVE TO BE CHANGED-->
+    <li class="link"><a href="CAR.html" class="link"><b>CAR</b></a></li>
+    <li class="link"> <a href="" class="link"> 🔎 </a></li><!-- LOCATIONS HAVE TO BE CHANGED-->
+    <li class="link"><a href="" class="link"><b>TRADE</b></a>
+    <li>
+    <li class="link"><a href="" class="link"><b>FAQ</b></a>
+    <
