@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Cars - CarMart</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Search Header */
+        .search-header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .search-container {
+            max-width: 800px;
+            margin: -30px auto 0;
+            padding: 0 20px;
+        }
+
+        .search-box {
+            background: white;
+            padding: 10px;
+            border-radius: 50px;
+            display: flex;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 15px 25px;
+            font-size: 16px;
+            border-radius: 50px 0 0 50px;
+            outline: none;
+        }
+
+        .search-btn {
+            background: #0066cc;
+            color: white;
+            border: none;
+            padding: 0 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .search-btn:hover {
+            background: #004499;
+        }
+
+        /* Layout */
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        /* Filters */
+        .filters-sidebar {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            height: fit-content;
+        }
+
+        .filter-group {
+            margin-bottom: 25px;
+        }
+
+        .filter-group h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        .filter-option {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .filter-option input {
+            margin-right: 10px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            outline: none;
+        }
+
+        /* Results */
+        .results-count {
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .car-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .car-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .car-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .car-info {
+            padding: 15px;
+        }
+
+        .car-tag {
+            display: inline-block;
+            padding: 4px 8px;
+            background: #eef6ff;
+            color: #0066cc;
+            font-size: 11px;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .car-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0 0 8px;
+        }
+
+        .car-price {
+            color: #d00;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .car-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            font-size: 13px;
+            color: #777;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        /* Empty State */
+        #not-found {
+            text-align: center;
+            padding: 60px 20px;
+            display: none;
+        }
+
+        #not-found h2 {
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .filters-sidebar {
+                display: none;
+            }
+
+            /* Could add a mobile filter toggle later */
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-nav">
+        <div class="main-nav-inner">
+            <a href="CARMART HOME.html" class="nav-logo">CarMart</a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav aria-label="Main navigation">
+                <ul class="nav-list" id="nav-list">
+                    <li class="nav-item"><a href="CARMART HOME.html" class="nav-link">HOME</a></li>
+                    <li class="nav-item"><a href="CAR.html" class="nav-link">CARS</a></li>
+                    <li class="nav-item"><a href="SEARCH.html" class="nav-link" aria-current="page">🔎</a></li>
+                    <li class="nav-item"><a href="TRADE.html" class="nav-link">TRADE</a></li>
+                    <li class="nav-item"><a href="FAQs.html" class="nav-link">FAQ</a></li>
+                    <li class="nav-item"><a href="About Car Mart.html" class="nav-link">ABOUT US</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <script>
+        document.getElementById('mobile-menu').addEventListener('click', function () {
+            document.getElementById('nav-list').classList.toggle('active');
+        });
+    </script>
+
+    <div class="search-header">
+        <h1>Find Your Next Drive</h1>
+        <p>Search over thousands of luxury and certified vehicles</p>
+    </div>
+
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" id="userInput" placeholder="Search by brand, model or year..." onkeyup="filterCars()">
+            <button class="search-btn" onclick="filterCars()">Search</button>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <aside class="filters-sidebar">
+            <div class="filter-group">
+                <h3>Brand</h3>
+                <select id="brandFilter" onchange="filterCars()">
+                    <option value="all">All Brands</option>
+                    <option value="BMW">BMW</option>
+                    <option value="Audi">Audi</option>
+                    <option value="Honda">Honda</option>
+                    <option value="Land Rover">Land Rover</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <h3>Max Price</h3>
+                <select id="priceFilter" onchange="filterCars()">
+                    <option value="all">Any Price</option>
+                    <option value="30000">Up to $30,000</option>
+                    <option value="60000">Up to $60,000</option>
+                    <option value="100000">Up to $100,000</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <h3>Condition</h3>
+                <label class="filter-option"><input type="radio" name="condition" value="all" checked
+                        onchange="filterCars()"> All</label>
+                <label class="filter-option"><input type="radio" name="condition" value="New" onchange="filterCars()">
+                    New</label>
+                <label class="filter-option"><input type="radio" name="condition" value="Used" onchange="filterCars()">
+                    Used</label>
+            </div>
+        </aside>
+
+        <main>
+            <div class="results-count" id="results-count">Showing all cars</div>
+
+            <div id="not-found">
+                <h2>No results found for your search.</h2>
+                <p>Try adjusting your filters or searching for something else.</p>
+            </div>
+
+            <div class="car-grid" id="carGrid">
+                <!-- Car items will be injected here by JS -->
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const cars = [
+            { id: 1, name: "2025 BMW 2 Series", price: 49999, brand: "BMW", condition: "New", img: "images/bmw_2_series.jpg", url: "2025 BMW 2 Series.html", body: "Coupe" },
+            { id: 2, name: "2024 Audi SQ8 e-tron", price: 84999, brand: "Audi", condition: "New", img: "images/audi_sq8.jpg", url: "2024 Audi SQ8 e-tron.html", body: "SUV" },
+            { id: 3, name: "2024 Honda Prologue", price: 48000, brand: "Honda", condition: "New", img: "images/honda_prologue.jpg", url: "2024 Honda Prologue.html", body: "SUV" },
+            { id: 4, name: "2025 Land Rover Range Rover Sport", price: 88999, brand: "Land Rover", condition: "New", img: "images/range_rover_sport.png", url: "2025 Land Rover Range Rover Sport.html", body: "SUV" },
+            { id: 5, name: "2021 BMW (Used)", price: 25000, brand: "BMW", condition: "Used", img: "images/bmw_3_series_used.jpg", url: "2021 BMW.html", body: "Sedan" }
+        ];
+
+        function displayCars(filteredCars) {
+            const grid = document.getElementById('carGrid');
+            const countLabel = document.getElementById('results-count');
+            const notFound = document.getElementById('not-found');
+
+            grid.innerHTML = '';
+
+            if (filteredCars.length === 0) {
+                notFound.style.display = 'block';
+                countLabel.innerText = '0 results found';
+            } else {
+                notFound.style.display = 'none';
+                countLabel.innerText = `Showing ${filteredCars.length} cars`;
+
+                filteredCars.forEach(car => {
+                    grid.innerHTML += `
+            <a href="${car.url}" class="car-card">
+              <img src="${car.img}" alt="${car.name}" class="car-img">
+              <div class="car-info">
+                <span class="car-tag">${car.brand} &bull; ${car.condition}</span>
+                <h3 class="car-title">${car.name}</h3>
+                <div class="car-price">$${car.price.toLocaleString()}</div>
+                <div class="car-meta">
+                  <span>${car.body}</span>
+                  <span>View Details &rarr;</span>
+                </div>
+              </div>
+            </a>
+          `;
+                });
+            }
+        }
+
+        function filterCars() {
+            const text = document.getElementById('userInput').value.toLowerCase();
+            const brand = document.getElementById('brandFilter').value;
+            const price = document.getElementById('priceFilter').value;
+            const condition = document.querySelector('input[name="condition"]:checked').value;
+
+            const filtered = cars.filter(car => {
+                const matchesText = car.name.toLowerCase().includes(text) || car.brand.toLowerCase().includes(text);
+                const matchesBrand = brand === 'all' || car.brand === brand;
+                const matchesPrice = price === 'all' || car.price <= parseInt(price);
+                const matchesCondition = condition === 'all' || car.condition === condition;
+
+                return matchesText && matchesBrand && matchesPrice && matchesCondition;
+            });
+
+            displayCars(filtered);
+        }
+
+        // Initial load
+        displayCars(cars);
+    </script>
+</body>
+
+</html>
