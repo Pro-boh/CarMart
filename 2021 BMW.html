@@ -4,46 +4,45 @@
 <head>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
 
   <style>
     body {
       font-family: sans-serif;
       background-color: #2d2d2d;
+      margin: 0;
+      padding-top: var(--nav-height);
     }
-
-
-
 
     /* IMAGE */
     .imgCont {
-      border-radius: 25px;
       width: 100%;
       height: auto;
-      border-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+      display: block;
     }
-
 
     .quote {
       font-family: Arial;
       color: white;
-      font-size: 120px;
+      font-size: clamp(2rem, 8vw, 120px);
       z-index: 1;
       text-align: center;
       font-weight: bold;
       position: absolute;
-      top: 10%;
-      left: 10%;
-      right: 10%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
     }
 
     /* CONTENT */
     .box {
-      border-radius: 25px;
+      border-radius: var(--border-radius);
       background-color: #181818;
-
       height: auto;
       padding: 30px;
-      margin: auto;
+      margin: 20px;
     }
 
     .text {
@@ -176,16 +175,40 @@
 
 <body>
 
+  <header class="main-nav">
+    <div class="main-nav-inner">
+      <a href="CARMART HOME.html" class="nav-logo">CarMart</a>
+      <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav aria-label="Main navigation">
+        <ul class="nav-list" id="nav-list">
+          <li class="nav-item"><a href="CARMART HOME.html" class="nav-link">HOME</a></li>
+          <li class="nav-item"><a href="CAR.html" class="nav-link">CARS</a></li>
+          <li class="nav-item"><a href="SEARCH.html" class="nav-link">🔎</a></li>
+          <li class="nav-item"><a href="TRADE.html" class="nav-link">TRADE</a></li>
+          <li class="nav-item"><a href="FAQs.html" class="nav-link">FAQ</a></li>
+          <li class="nav-item"><a href="About Car Mart.html" class="nav-link">ABOUT US</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <!-- IMAGE -->
+  <script>
+    document.getElementById('mobile-menu').addEventListener('click', function () {
+      document.getElementById('nav-list').classList.toggle('active');
+    });
+  </script>
 
-
-  <img class="imgCont" src="images/bmw_3_series_used.jpg">
-
-  <div class="quote">
-    <p>2021 BMW Series</p>
+  <!-- HERO SECTION -->
+  <div class="container">
+    <img class="imgCont" src="images/bmw_3_series_used.jpg">
+    <div class="quote">
+      <p>2021 BMW Series</p>
+    </div>
   </div>
-  <br><br>
 
   <!-- CONTENT -->
   <div class="box">
