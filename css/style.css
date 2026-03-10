@@ -1,0 +1,242 @@
+/* Global Styles & Variables */
+:root {
+  --primary-color: #0074d9;
+  --secondary-color: #001f3f;
+  --text-color: #333;
+  --bg-color: #ffffff;
+  --nav-bg: #f2f2f2;
+  --nav-text: #000000;
+  --card-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  --card-hover-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  --border-radius: 25px;
+  --nav-height: 56px;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding-top: var(--nav-height);
+  overflow-x: hidden;
+}
+
+/* NAVIGATION BAR */
+.main-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: var(--nav-bg);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.main-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+}
+
+.nav-logo {
+  font-weight: bold;
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: var(--nav-text);
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+}
+
+.nav-link {
+  display: block;
+  color: var(--nav-text);
+  text-align: center;
+  padding: 10px 14px;
+  text-decoration: none;
+  font-size: 0.875rem;
+  border-radius: 15px;
+  transition: background-color 0.2s;
+}
+
+.nav-link:hover {
+  background-color: #ffffff;
+}
+
+.nav-link[aria-current="page"] {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+}
+
+/* HAMBURGER MENU */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--nav-text);
+  border-radius: 3px;
+}
+
+/* COMMON COMPONENTS */
+.container {
+  position: relative;
+  height: auto;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+
+.card,
+.car {
+  background-color: #fff;
+  box-shadow: var(--card-shadow);
+  transition: 0.3s;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  flex: 0 0 320px;
+  /* Fixed width base, no grow, no shrink */
+  max-width: 400px;
+  scroll-snap-align: center;
+}
+
+.card:hover,
+.car:hover {
+  box-shadow: var(--card-hover-shadow);
+}
+
+/* RESPONSIVENESS */
+@media screen and (max-width: 768px) {
+  .main-nav-inner {
+    padding: 12px 16px;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-list {
+    display: none;
+    /* Hidden by default on mobile */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--nav-bg);
+    flex-direction: column;
+    gap: 0;
+    padding: 10px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-list.active {
+    display: flex;
+  }
+
+  .nav-link {
+    width: 100%;
+    border-radius: 0;
+    padding: 15px;
+    text-align: left;
+  }
+
+  /* Font Scaling */
+  h1,
+  .aaa,
+  .paragraph {
+    font-size: clamp(1.5rem, 8vw, 2.5rem) !important;
+  }
+
+  .text-container {
+    font-size: 3em !important;
+  }
+
+  .word {
+    font-size: 1.5rem !important;
+  }
+
+  .word img {
+    width: 180px !important;
+    height: auto !important;
+  }
+
+  /* Layout Stacking */
+  .container2,
+  .storeConrainer {
+    flex-direction: column !important;
+    align-items: center;
+  }
+
+  .container1 {
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    overflow-x: auto !important;
+    padding: 20px 20px !important;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .container1::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card,
+  .car,
+  .store {
+    margin: 10px 0 !important;
+  }
+
+  .container1 .card,
+  .container1 .car {
+    width: 280px !important;
+    /* Slightly narrower to show a peek of the next card */
+    flex-shrink: 0 !important;
+    scroll-snap-align: center;
+    margin: 0 !important;
+    height: auto;
+  }
+}
+
+/* FOOTER */
+.foo {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: black;
+  font-family: arial;
+  font-size: 11px;
+  padding: 20px 0;
+}
+
+.foo table {
+  width: 90%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 480px) {
+  .foo table {
+    display: block;
+  }
+
+  .foo tr {
+    display: flex;
+    flex-direction: column;
+  }
+}

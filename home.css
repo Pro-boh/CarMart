@@ -1,0 +1,482 @@
+/* VIDEO STYLE */
+.container video {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.overlay {
+position: absolute;
+top: 30%;
+left: 2%;
+z-index: 1;
+pointer-events: none;
+}
+
+.design {
+color: #f0f0f0;
+}
+
+/* SCROLL EFFECT */
+.spacer {
+height: auto;
+}
+
+.text-container {
+text-align: left;
+font-size: 5em;
+color: #f0f0f0;
+opacity: 0;
+transform: translateY(20px);
+transition: opacity 1s ease, transform 1s ease;
+text-shadow: 1px 1px 6px #ffffff;
+}
+
+.text-container.show {
+opacity: 1;
+transform: translateY(0);
+}
+
+.word {
+display: inline-block;
+opacity: 0;
+animation: fadeIn 1s ease forwards;
+font-size: 70px;
+}
+
+/* Add delay for each word */
+.word:nth-child(1) {
+animation-delay: 0.5s;
+}
+
+.word:nth-child(2) {
+animation-delay: 1.8s;
+}
+
+.word:nth-child(3) {
+animation-delay: 2.3s;
+}
+
+.word:nth-child(4) {
+animation-delay: 2.6s;
+}
+
+.word:nth-child(5) {
+animation-delay: 3.2s;
+}
+
+.word:nth-child(6) {
+animation-delay: 4.0s;
+}
+
+@keyframes fadeIn {
+0% {
+opacity: 0;
+transform: translateY(20px);
+}
+
+100% {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+/* AFTER VIDEO STYLE */
+.paragraph {
+font-size: 65px;
+display: inline-block;
+text-align: center;
+background: linear-gradient(red, blue);
+-webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+position: relative;
+right: 0;
+}
+
+/* LOGO SECTION */
+.cz1 {
+background-image: url('https://static.vecteezy.com/system/resources/thumbnails/003/127/955/small_2x/abstract-white-and-grey-background-with-dynamic-waves-shape-free-vector.jpg');
+background-size: cover;
+background-position: center;
+}
+
+/* PARAGRAPH HOVER */
+.content {
+padding: 20px;
+}
+
+.hover-container {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.hover-container .hover-paragraph {
+display: none;
+font-size: 16px;
+color: #333;
+margin-top: 10px;
+}
+
+.hover-container:hover .hover-paragraph {
+display: block;
+}
+
+/* SLIDESHOW */
+.mySlides {
+display: none
+}
+
+img {
+vertical-align: middle;
+border-radius: 25px;
+}
+
+.slideshow-container {
+max-width: 1000px;
+position: relative;
+margin: auto;
+}
+
+.prev,
+.next {
+cursor: pointer;
+position: absolute;
+top: 50%;
+width: auto;
+padding: 16px;
+margin-top: -22px;
+color: white;
+font-weight: bold;
+font-size: 18px;
+transition: 0.6s ease;
+border-radius: 0 3px 3px 0;
+user-select: none;
+}
+
+.next {
+right: 0;
+border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dot {
+cursor: pointer;
+height: 15px;
+width: 15px;
+margin: 0 2px;
+background-color: #bbb;
+border-radius: 50%;
+display: inline-block;
+transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+background-color: #717171;
+}
+
+.fade {
+animation-name: fade;
+animation-duration: 1.5s;
+}
+
+@keyframes fade {
+from {
+opacity: .4
+}
+
+to {
+opacity: 1
+}
+}
+
+@media only screen and (max-width: 300px) {
+
+.prev,
+.next,
+.text {
+font-size: 11px
+}
+}
+
+/* BOX CONTAINERS */
+.container1,
+.container2 {
+display: flex;
+justify-content: space-between;
+flex-direction: row;
+flex-wrap: wrap;
+position: relative;
+padding: 20px 0;
+}
+
+.card {
+width: 320px;
+height: 320px;
+}
+
+.act {
+text-decoration: none;
+color: black;
+}
+
+/* MESSAGE DESIGN */
+.aaa {
+font-size: 45px;
+text-align: center;
+background: linear-gradient(blue, cyan);
+-webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.aaa1 {
+font-size: 40px;
+text-align: center;
+background: linear-gradient(red, blue);
+-webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.pp {
+position: relative;
+border-radius: 25px;
+}
+
+/* NEW ARRIVALS */
+.con {
+background-image: url('https://static.vecteezy.com/system/resources/thumbnails/003/127/955/small_2x/abstract-white-and-grey-background-with-dynamic-waves-shape-free-vector.jpg');
+background-size: cover;
+background-position: center;
+}
+
+.car {
+width: 400px;
+height: 500px;
+padding: 3px;
+margin: 10px auto;
+text-align: justify;
+}
+
+.price {
+color: red;
+font-size: 32px;
+text-align: center;
+}
+
+/* NEWS SECTION */
+.container5 {
+max-width: 80%;
+margin: 50px auto;
+padding: 30px;
+background: rgba(0, 0, 0, 0.004);
+border-radius: 25px;
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+backdrop-filter: blur(10px);
+}
+
+.header {
+background: rgba(0, 0, 0, 0.5);
+color: white;
+padding: 20px 0;
+text-align: center;
+font-size: 2.2em;
+letter-spacing: 1px;
+text-transform: uppercase;
+position: relative;
+overflow: hidden;
+border-radius: 15px;
+}
+
+.header::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(to right, #ff7e5f, #feb47b);
+clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
+z-index: -1;
+}
+
+.headline {
+font-size: 2em;
+color: #333;
+text-align: center;
+margin-bottom: 20px;
+position: relative;
+}
+
+.headline::after {
+content: '';
+display: block;
+width: 80px;
+height: 4px;
+background: #ff7e5f;
+margin: 10px auto 0;
+border-radius: 2px;
+}
+
+.news-highlight {
+padding: 20px;
+background: #fff;
+border-radius: 10px;
+margin-bottom: 30px;
+box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+animation: slideIn 1s ease-out;
+}
+
+.news-highlight-title {
+font-size: 1.6em;
+color: #ff7e5f;
+margin-bottom: 10px;
+}
+
+.news-highlight-description {
+font-size: 1.2em;
+color: #555;
+line-height: 1.6;
+}
+
+.car-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 20px;
+}
+
+.car-card {
+background: #fff;
+border-radius: 15px;
+box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+overflow: hidden;
+transform: scale(1);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.car-card:hover {
+transform: scale(1.05);
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.car-image {
+width: 100%;
+height: 160px;
+object-fit: cover;
+}
+
+.car-details {
+padding: 15px;
+text-align: center;
+}
+
+.car-title {
+font-size: 1.4em;
+color: #333;
+margin-bottom: 10px;
+}
+
+.car-description {
+font-size: 1em;
+color: #666;
+line-height: 1.5;
+}
+
+@keyframes slideIn {
+from {
+opacity: 0;
+transform: translateY(20px);
+}
+
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+/* MARQUEE */
+.marquee-container {
+width: 100%;
+overflow: hidden;
+background-color: #ffffff;
+padding: 10px 0;
+border-radius: 25px;
+}
+
+.marquee {
+display: flex;
+gap: 10px;
+animation: marquee 50s linear infinite;
+}
+
+.marquee img {
+width: 1000px;
+height: 200px;
+object-fit: cover;
+border: 3px solid #ddd;
+border-radius: 10px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes marquee {
+0% {
+transform: translateX(100%);
+}
+
+100% {
+transform: translateX(-100%);
+}
+}
+
+/* STORE DESIGN */
+.storeConrainer {
+display: flex;
+justify-content: space-between;
+flex-direction: row;
+flex-wrap: wrap;
+}
+
+.store {
+width: 280px;
+height: 400px;
+border-radius: 25px;
+text-align: left;
+background-color: white;
+color: rgba(0, 0, 0, 0.6);
+}
+
+.imgstore {
+width: 280px;
+height: 200px;
+border-radius: 25px;
+}
+
+.info {
+width: 240px;
+height: auto;
+border-radius: 25px;
+padding: 20px;
+}
+
+/* FOOTER TABLE */
+table {
+width: 55%;
+text-align: left;
+color: black;
+font-family: arial;
+font-size: 12px;
+text-decoration: none;
+border-collapse: separate;
+border-spacing: 10px;
+table-layout: fixed;
+}
+
+.linkf {
+color: black;
+}
