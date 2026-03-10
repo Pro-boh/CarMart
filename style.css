@@ -103,15 +103,21 @@ body {
   border-radius: var(--border-radius);
 }
 
-.card, .car {
+.card,
+.car {
   background-color: #fff;
   box-shadow: var(--card-shadow);
   transition: 0.3s;
   border-radius: var(--border-radius);
   overflow: hidden;
+  flex: 0 0 320px;
+  /* Fixed width base, no grow, no shrink */
+  max-width: 400px;
+  scroll-snap-align: center;
 }
 
-.card:hover, .car:hover {
+.card:hover,
+.car:hover {
   box-shadow: var(--card-hover-shadow);
 }
 
@@ -126,7 +132,8 @@ body {
   }
 
   .nav-list {
-    display: none; /* Hidden by default on mobile */
+    display: none;
+    /* Hidden by default on mobile */
     position: absolute;
     top: 100%;
     left: 0;
@@ -135,7 +142,7 @@ body {
     flex-direction: column;
     gap: 0;
     padding: 10px 0;
-    border-top: 1px solid rgba(0,0,0,0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   .nav-list.active {
@@ -150,7 +157,9 @@ body {
   }
 
   /* Font Scaling */
-  h1, .aaa, .paragraph {
+  h1,
+  .aaa,
+  .paragraph {
     font-size: clamp(1.5rem, 8vw, 2.5rem) !important;
   }
 
@@ -161,21 +170,47 @@ body {
   .word {
     font-size: 1.5rem !important;
   }
-  
+
   .word img {
-      width: 180px !important;
-      height: auto !important;
+    width: 180px !important;
+    height: auto !important;
   }
 
   /* Layout Stacking */
-  .container1, .container2, .storeConrainer {
+  .container2,
+  .storeConrainer {
     flex-direction: column !important;
     align-items: center;
   }
 
-  .card, .car, .store {
-    width: 90% !important;
+  .container1 {
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    overflow-x: auto !important;
+    padding: 20px 20px !important;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .container1::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card,
+  .car,
+  .store {
     margin: 10px 0 !important;
+  }
+
+  .container1 .card,
+  .container1 .car {
+    width: 280px !important;
+    /* Slightly narrower to show a peek of the next card */
+    flex-shrink: 0 !important;
+    scroll-snap-align: center;
+    margin: 0 !important;
+    height: auto;
   }
 }
 
@@ -191,16 +226,17 @@ body {
 }
 
 .foo table {
-    width: 90%;
-    margin: 0 auto;
+  width: 90%;
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 480px) {
-    .foo table {
-        display: block;
-    }
-    .foo tr {
-        display: flex;
-        flex-direction: column;
-    }
+  .foo table {
+    display: block;
+  }
+
+  .foo tr {
+    display: flex;
+    flex-direction: column;
+  }
 }

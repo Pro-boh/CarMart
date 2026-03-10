@@ -90,12 +90,21 @@
       /* CARDS */
       .container1 {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         flex-direction: row;
-        flex-wrap: wrap;
-        gap: 10px;
+        flex-wrap: nowrap;
+        gap: 20px;
         position: relative;
-        padding: 20px 0;
+        padding: 20px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        /* Firefox */
+      }
+
+      .container1::-webkit-scrollbar {
+        display: none;
+        /* Chrome/Safari/Edge */
       }
 
       .price {
