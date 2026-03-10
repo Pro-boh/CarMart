@@ -43,32 +43,10 @@ CarMart/
 ## 🚀 GitHub Pages Deployment
 
 ### Setup Instructions:
-1. **Push your code to GitHub:**
-   ```bash
-   git add .
-   git commit -m "Updated for GitHub Pages deployment"
-   git push origin main
-   ```
 
-2. **Enable GitHub Pages:**
-   - Go to your repository on GitHub
-   - Click **Settings** → **Pages**
-   - Under **Source**, select:
-     - Branch: `main`
-     - Folder: `/ (root)`
-   - Click **Save**
-
-3. **Wait for deployment** (1-2 minutes)
-
-4. **Access your site at:**
    ```
    https://Pro-boh.github.io/CarMart/
    ```
-
-### Important Notes:
-- The main homepage is `index.html` (GitHub Pages looks for this file by default)
-- All internal links have been updated to reference the correct filenames
-- Images should be placed in an `images/` folder in the repository root
 
 ## 📝 Recent Updates
 - Renamed `CARMART_HOME.html` to `index.html` for GitHub Pages compatibility
@@ -76,11 +54,6 @@ CarMart/
 - Standardized filename references (spaces replaced with underscores)
 - Fixed navigation bar across all pages
 
-## 🔧 Local Development
-To run locally:
-1. Clone the repository
-2. Open `index.html` in your browser
-3. No build process required!
 
 ## 📧 Contact
 - Email: carmart@example.com
